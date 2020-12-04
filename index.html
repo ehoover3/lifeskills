@@ -1,5 +1,17 @@
+<!-- THINGS I'VE DONE TO THIS WEBSITE -->
+<!-- 1. Responsive Website -->
+<!-- 2. Flip card -->
+<!-- 3. Hamburger button -->
+<!-- 4. Header has a new affirming quote each time the page loads -->
+
+<!-- FUTURE FEATURES -->
+<!-- 2. Navbar is sticky on the scroll down -->
+<!-- 3. Add a sidebar -->
+<!-- 4. use javascript to randomly select from an array of images -->
+<!-- 5. Get inspired by YouTube cool websites -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -8,277 +20,100 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Life Skills</title>
-    <link rel="stylesheet" href="./setup.css" />
-    <style>
-      body {
-        /* background: linear-gradient(45deg, black, #ea3e3e); */
-        /* background: linear-gradient(45deg, rgb(76, 76, 76), rgb(35, 83, 144)); */
-        background: rgb(35, 83, 144);
-        color: #ddd;
-      }
-      @keyframes slideDown {
-        100% {
-          transform: translateY(0);
-          opacity: 1;
-        }
-      }
-      .wrapper {
-        padding: 0 25px;
-        max-width: 425px;
-        height: 100vh;
-      }
-      header {
-        padding-top: 100px;
-        margin-bottom: 50px;
-      }
-      header h1 {
-        font-size: 42px;
-        margin-bottom: 10px;
-        color: #271111;
-      }
-      nav {
-        position: absolute;
-        top: 40px;
-        right: 35px;
-        width: 35px;
-      }
-      nav span {
-        background-color: #222;
-        margin: 4px 0;
-        height: 3px;
-        display: block;
-      }
-
-      .cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        overflow: auto;
-      }
-
-      .cards .card {
-        width: calc(50% - 13px);
-        height: 150px;
-        background-color: #222;
-        color: white;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 10px;
-        /* border: 3px solid #e25656; */
-        border: 3px solid #faa918;
-        box-shadow: 0 0 9px #4c0505;
-      }
-
-      .cards .card h2 {
-        margin: 0;
-      }
-
-      .card-content {
-        padding: 100px 25px 25px;
-        overflow: auto;
-        height: 100%;
-        color: #fff;
-      }
-      .card-content > * {
-        transform: translateY(-35px);
-        opacity: 0;
-      }
-      .card-content h2 {
-        font-size: 32px;
-        margin-bottom: 35px !important;
-        animation: slideDown 0.5s ease-out forwards;
-      }
-      .card-content img {
-        width: 100%;
-        background-color: #fff;
-        margin-bottom: 10px;
-        animation: slideDown 0.5s ease-out 0.2s forwards;
-      }
-      .card-content p {
-        color: #999;
-        animation: slideDown 0.5s ease-out 0.4s forwards;
-      }
-    </style>
+    <link rel="stylesheet" href="./main.css" />
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Read People</h1>
-        <!-- <nav><span></span><span></span></nav> -->
-        <nav><span></span><span></span></span><span></span></nav>
-        <p>Practice knowing what people are thinking and feeling</p>
-      </header>
-      <div class="cards">
-        <div class="card" data-type="legs">
-          <h2>LEGS</h2>
+    <div class="header">
+      <h2 id="rando"></h2>
+    </div>
+
+    <div class="topnav">
+      <div>
+        <a href="#" class="left">Read People</a>
+        <!-- HAMBURGER BUTTON -->
+        <div class="container" onclick="myFunction(this)" class="left">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
         </div>
-        <div class="card" data-type="arms">
-          <h2>ARMS</h2>
+        <!-- END HAMBURGER BUTTON -->
+      </div>
+
+      <div>
+        <a href="#" class="middle">A</a>
+        <a href="#" class="middle">B</a>
+        <a href="#" class="middle">C</a>
+        <a href="#" class="middle">D</a>
+      </div>
+
+      <div>
+        <a href="#" class="right">Login</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="leftcolumn">
+        <div class="card">
+          <h2>TITLE HEADING</h2>
+          <h5>Title description, Dec 7, 2017</h5>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>Some text..</p>
+          <p>blah blah blah1.</p>
         </div>
-        <div class="card" data-type="face">
-          <h2>FACE</h2>
+        <div class="card">
+          <h2>TITLE HEADING</h2>
+          <h5>Title description, Sep 2, 2017</h5>
+          <div class="fakeimg" style="height: 200px">Image</div>
+          <p>Some text..</p>
+          <p>blah blah blah2.</p>
         </div>
-        <div class="card" data-type="shoulders">
-          <h2>SHOULDERS</h2>
+      </div>
+      <div class="rightcolumn">
+        <div class="card">
+          <h2>About Me</h2>
+          <!-- FLIP CARD -->
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img
+                  src="./photo1.png"
+                  alt="Avatar"
+                  style="width: 200px; height: 300px"
+                />
+              </div>
+              <div class="flip-card-back">
+                <h1>Eric Hoover</h1>
+                <p>Software Engineer</p>
+              </div>
+            </div>
+          </div>
+          <!-- END FLIP CARD -->
+          <p>Blah blah blah3</p>
         </div>
-        <div class="card" data-type="hands">
-          <h2>HANDS</h2>
+        <div class="card">
+          <h3>Popular Post</h3>
+          <div class="fakeimg"><p>Image</p></div>
+          <div class="fakeimg"><p>Image</p></div>
+          <div class="fakeimg"><p>Image</p></div>
         </div>
-        <div class="card" data-type="voice">
-          <h2>VOICE</h2>
+        <div class="card">
+          <h3>Follow Me</h3>
+          <p>Some text..</p>
         </div>
       </div>
     </div>
 
-    <script>
-      const cards = document.querySelectorAll(".card");
+    <div class="footer">
+      <h2>Footer</h2>
+    </div>
+    <!-- SOCIAL MEDIA BUTTONS -->
+    <!-- (need to add html here) -->
+    <!-- END SOCIAL MEDIA BUTTONS -->
 
-      const toggleExpansion = (element, to, duration = 350) => {
-        return new Promise((res) => {
-          requestAnimationFrame(() => {
-            element.style.transition = `
-						width ${duration}ms ease-in-out,
-						height ${duration}ms ease-in-out,
-						left ${duration}ms ease-in-out,
-						top ${duration}ms ease-in-out
-					`;
-            element.style.top = to.top;
-            element.style.left = to.left;
-            element.style.width = to.width;
-            element.style.height = to.height;
-          });
-          setTimeout(res, duration);
-        });
-      };
+    <!-- SIDE BAR -->
 
-      const fadeContent = (element, opacity, duration = 300) => {
-        return new Promise((res) => {
-          [...element.children].forEach((child) => {
-            requestAnimationFrame(() => {
-              child.style.transition = `opacity ${duration}ms linear`;
-              child.style.opacity = opacity;
-            });
-          });
-          setTimeout(res, duration);
-        });
-      };
-
-      const getCardContent = (title, type) => {
-        return `
-				<div class="card-content">
-					<h2>${title}</h2>
-					<img src="./assets/${type}.png" alt="${title}">
-					<p>
-            test
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eligendi fuga ullam? Aperiam blanditiis
-						cupiditate dicta eius exercitationem explicabo fugit, impedit iure libero nam nihil nisi perferendis
-						provident quaerat repellendus vitae voluptate? Aliquid amet architecto asperiores aut consequuntur
-						corporis debitis ea eveniet in maiores, nam placeat quae, ratione rerum ullam?
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eum ipsa molestiae nesciunt nostrum porro
-						reprehenderit? Animi corporis deleniti dolore laborum, nemo pariatur temporibus voluptatem.
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor eum ipsa molestiae nesciunt nostrum porro
-						reprehenderit? Animi corporis deleniti dolore laborum, nemo pariatur temporibus voluptatem.
-					</p>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eligendi fuga ullam? Aperiam blanditiis
-						cupiditate dicta eius exercitationem explicabo fugit, impedit iure libero nam nihil nisi perferendis
-						provident quaerat repellendus vitae voluptate? Aliquid amet architecto asperiores aut consequuntur
-						corporis debitis ea eveniet in maiores, nam placeat quae, ratione rerum ullam?
-					</p>
-				</div>
-			`;
-      };
-
-      const onCardClick = async (e) => {
-        const card = e.currentTarget;
-        // clone the card
-        const cardClone = card.cloneNode(true);
-        // get the location of the card in the view
-        const { top, left, width, height } = card.getBoundingClientRect();
-        // position the clone on top of the original
-        cardClone.style.position = "fixed";
-        cardClone.style.top = top + "px";
-        cardClone.style.left = left + "px";
-        cardClone.style.width = width + "px";
-        cardClone.style.height = height + "px";
-        // hide the original card with opacity
-        card.style.opacity = "0";
-        // add card to the same container
-        card.parentNode.appendChild(cardClone);
-        // create a close button to handle the undo
-        const closeButton = document.createElement("button");
-        // position the close button top corner
-        closeButton.style = `
-				position: fixed;
-				z-index: 10000;
-				top: 35px;
-				right: 35px;
-				width: 35px;
-				height: 35px;
-				border-radius: 50%;
-				background-color: #e25656;
-			`;
-        // attach click event to the close button
-        closeButton.addEventListener("click", async () => {
-          // remove the button on close
-          closeButton.remove();
-          // remove the display style so the original content is displayed right
-          cardClone.style.removeProperty("display");
-          cardClone.style.removeProperty("padding");
-          // show original card content
-          [...cardClone.children].forEach((child) =>
-            child.style.removeProperty("display")
-          );
-          fadeContent(cardClone, "0");
-          // shrink the card back to the original position and size
-          await toggleExpansion(
-            cardClone,
-            {
-              top: `${top}px`,
-              left: `${left}px`,
-              width: `${width}px`,
-              height: `${height}px`,
-            },
-            300
-          );
-          // show the original card again
-          card.style.removeProperty("opacity");
-          // remove the clone card
-          cardClone.remove();
-        });
-        // fade the content away
-        fadeContent(cardClone, "0").then(() => {
-          [...cardClone.children].forEach(
-            (child) => (child.style.display = "none")
-          );
-        });
-        // expand the clone card
-        await toggleExpansion(cardClone, {
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-        });
-        const content = getCardContent(card.textContent, card.dataset.type);
-        // set the display block so the content will follow the normal flow in case the original card is not display block
-        cardClone.style.display = "block";
-        cardClone.style.padding = "0";
-        // append the close button after the expansion is done
-        cardClone.appendChild(closeButton);
-        cardClone.insertAdjacentHTML("afterbegin", content);
-      };
-
-      cards.forEach((card) => card.addEventListener("click", onCardClick));
-    </script>
+    <!-- END SIDE BAR -->
   </body>
+  <script src="./lifeskills.js"></script>
 </html>

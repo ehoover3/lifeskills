@@ -1,104 +1,189 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  text-align: center;
   background: white;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* FLIP CARD */
+
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
   text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-header {
-  background: rgb(35, 83, 144);
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
   color: white;
-  font-family: "din-round", sans-serif;
-  font-size: 18px;
-  padding-bottom: 10px;
-  text-align: left;
+  transform: rotateY(180deg);
+}
+/* END FLIP CARD */
+
+/* HAMBURGER BUTTON */
+.container {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0px;
+  position: relative;
+  left: 10px;
+  top: 4px;
 }
 
-header h2 {
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #f2f2f2;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+/* END HAMBURGER BUTTON */
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
   text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-#button {
-  background: rgb(88, 204, 2);
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  border-radius: 16px;
-  box-shadow: 0px 4px rgb(88, 167, 0);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 12px 24px;
-  width: 20%;
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
-#middle h1 {
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: left;
+  width: 75%;
 }
 
-#middle h2 {
-  color: #3c3c3c;
-  font-size: 24px;
-  line-height: 26px;
-  margin: 0 0 25px;
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  background-color: #f1f1f1;
+  padding-left: 20px;
 }
 
-#middle h3 {
-  color: #3c3c3c;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 26px;
-  margin: 0 0 25px;
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
 }
 
-/* middle */
-#text {
-  color: #777;
-  flex-grow: 1;
-  font-size: 17px;
-  line-height: 1.5;
-  margin-bottom: 24px;
+/* Add a card effect for articles */
+.card {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
   text-align: center;
+  background: #ddd;
+  margin-top: 20px;
 }
 
-#middle h5 {
-  color: #1cb0f6;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn,
+  .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
 }
 
-#bottom {
-  background: rgb(35, 83, 144);
-  color: white;
-  padding-bottom: 10px;
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
 }
 
-#bottom h5 {
-  background: rgb(88, 204, 2);
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  border-radius: 16px;
-  box-shadow: 0px 4px rgb(88, 167, 0);
-  margin-left: auto;
-  margin-right: auto;
-  padding: 12px 24px;
-  width: 30%;
-}
+/* SIDE BAR */
 
-footer {
-  background: rgb(35, 83, 144);
-  color: white;
-  column-gap: 100px;
-  columns: 100px 5;
-  font-family: "din-round", sans-serif;
-  font-size: 18px;
-}
-
-footer h2 {
-  color: white;
-  font-size: 19px;
-  font-weight: 700;
-}
-
-footer h3 {
-  color: rgb(145, 169, 199);
-  font-size: 19px;
-  font-weight: 700;
-}
+/* END SIDE BAR */

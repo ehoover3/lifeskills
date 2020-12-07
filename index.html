@@ -1,14 +1,14 @@
 <!-- THINGS I'VE DONE TO THIS WEBSITE -->
 <!-- 1. Responsive Website -->
-<!-- 2. Flip card -->
-<!-- 3. Hamburger button -->
-<!-- 4. Header has a new affirming quote each time the page loads -->
+<!-- 2. Header has a new affirming quote each time the page loads -->
+<!-- 3. Navbar is sticky on the scroll down -->
+<!-- 4. Add a sidebar w/ Hamburger button -->
+<!-- 5. Flip card -->
 
-<!-- FUTURE FEATURES -->
-<!-- 2. Navbar is sticky on the scroll down -->
-<!-- 3. Add a sidebar -->
-<!-- 4. use javascript to randomly select from an array of images -->
-<!-- 5. Get inspired by YouTube cool websites -->
+<!-- FUTURE FEATURES/FIXES -->
+<!-- 1. input form -->
+<!-- WATCH THIS https://www.youtube.com/watch?v=dIyVTjJAkLw -->
+<!-- CHALLENGE ACCEPTED:  Make a nav bar with out w3 schools -->
 
 <!DOCTYPE html>
 <html>
@@ -24,96 +24,115 @@
   </head>
 
   <body>
+<!-- SIDEBAR -->
+<body>
+  <!-- Sidebar -->
+  <div
+    class="sidebar-sidebar sidebar-bar-block sidebar-animate-left"
+    style="display: none; z-index: 5"
+    id="mySidebar"
+  >
+    <button class="sidebar-bar-item sidebar-button sidebar-large" onclick="sidebar_close()">
+      Close &times;
+    </button>
+    <a href="#" class="sidebar-bar-item sidebar-button">Link 1</a>
+    <a href="#" class="sidebar-bar-item sidebar-button">Link 2</a>
+    <a href="#" class="sidebar-bar-item sidebar-button">Link 3</a>
+  </div>
+  <!-- Page Content -->
+  <div
+    class="sidebar-overlay sidebar-animate-opacity"
+    onclick="sidebar_close()"
+    style="cursor: pointer"
+    id="myOverlay"
+  ></div>
+  <div>
+    <button class="sidebar-button sidebar-white sidebar-xxlarge" onclick="sidebar_open()">
+      &#9776;
+    </button>
+  </div>
+  <!-- END SIDEBAR -->
+
+    <!-- NAVIGATION BAR -->
+    <ul>
+      <div class="navigationBar">
+        <div>
+          <li><a class="active left" href="#home">Read People</a></li>
+        </div>
+        <div>
+          <li><a class="middle" href="#home">A</a></li>
+          <li><a class="middle" href="#home">B</a></li>
+          <li><a class="middle" href="#home">C</a></li>
+        </div>
+        <div>
+          <li><a class="right" href="#home">Shop</a></li>
+          <li><a class="right" href="#home">My Account</a></li>
+        </div>
+      </div>
+    </ul>
+    <!-- END NAVIGATION BAR -->
+
+
+
     <div class="header">
       <h2 id="rando"></h2>
     </div>
 
-    <div class="topnav">
-      <div>
-        <a href="#" class="left">Read People</a>
-        <!-- HAMBURGER BUTTON -->
-        <div class="container" onclick="myFunction(this)" class="left">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </div>
-        <!-- END HAMBURGER BUTTON -->
-      </div>
-
-      <div>
-        <a href="#" class="middle">A</a>
-        <a href="#" class="middle">B</a>
-        <a href="#" class="middle">C</a>
-        <a href="#" class="middle">D</a>
-      </div>
-
-      <div>
-        <a href="#" class="right">Login</a>
-      </div>
-    </div>
-
     <div class="row">
-      <div class="leftcolumn">
-        <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Title description, Dec 7, 2017</h5>
-          <div class="fakeimg" style="height: 200px">Image</div>
-          <p>Some text..</p>
-          <p>blah blah blah1.</p>
-        </div>
-        <div class="card">
-          <h2>TITLE HEADING</h2>
-          <h5>Title description, Sep 2, 2017</h5>
-          <div class="fakeimg" style="height: 200px">Image</div>
-          <p>Some text..</p>
-          <p>blah blah blah2.</p>
-        </div>
+      <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        <div class="fakeimg" style="height: 200px">Image</div>
+        <p>Some text..</p>
+        <p>blah blah blah1.</p>
       </div>
-      <div class="rightcolumn">
-        <div class="card">
-          <h2>About Me</h2>
-          <!-- FLIP CARD -->
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src="./photo1.png"
-                  alt="Avatar"
-                  style="width: 200px; height: 300px"
-                />
-              </div>
-              <div class="flip-card-back">
-                <h1>Eric Hoover</h1>
-                <p>Software Engineer</p>
-              </div>
-            </div>
-          </div>
-          <!-- END FLIP CARD -->
-          <p>Blah blah blah3</p>
-        </div>
-        <div class="card">
-          <h3>Popular Post</h3>
-          <div class="fakeimg"><p>Image</p></div>
-          <div class="fakeimg"><p>Image</p></div>
-          <div class="fakeimg"><p>Image</p></div>
-        </div>
-        <div class="card">
-          <h3>Follow Me</h3>
-          <p>Some text..</p>
-        </div>
+      <div class="card">
+        <h2>TITLE HEADING</h2>
+        <h5>Title description, Sep 2, 2017</h5>
+        <div class="fakeimg" style="height: 200px">Image</div>
+        <p>Some text..</p>
+        <p>blah blah blah2.</p>
       </div>
     </div>
 
     <div class="footer">
       <h2>Footer</h2>
+      <!-- FLIP CARD -->
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="./photo1.png"
+              alt="Avatar"
+              style="width: 200px; height: 300px"
+            />
+          </div>
+          <div class="flip-card-back">
+            <h1>Eric Hoover</h1>
+            <p>Software Engineer</p>
+          </div>
+        </div>
+      </div>
+      <!-- END FLIP CARD -->
     </div>
     <!-- SOCIAL MEDIA BUTTONS -->
-    <!-- (need to add html here) -->
+    <!-- add code here -->
     <!-- END SOCIAL MEDIA BUTTONS -->
 
-    <!-- SIDE BAR -->
+        <!-- HAMBURGER MENU  -->
+        <div class="hamburgerContainer right" onclick="hamburgerFunction(this)">
+          <div class="hamburgerBar1"></div>
+          <div class="hamburgerBar2"></div>
+          <div class="hamburgerBar3"></div>
+        </div>
+        <!-- END HAMBURGER MENU -->
 
-    <!-- END SIDE BAR -->
   </body>
+
   <script src="./lifeskills.js"></script>
 </html>
+</body>
+
+
+
+

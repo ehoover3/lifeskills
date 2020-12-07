@@ -1,6 +1,13 @@
-function myFunction(x) {
-  x.classList.toggle("change");
+// HAMBUGER MENU
+// HEADER
+// NAVIGATION BAR
+// SIDE BAR
+
+// HAMBURGER MENU
+function hamburgerFunction(x) {
+  x.classList.toggle("hamburgerChange");
 }
+// END HAMBURGER MENU
 
 // HEADER - RANDOM AFFIRMING PHRASE UPON PAGE LOAD
 arrayOfPhrases = [
@@ -20,6 +27,31 @@ let element = document.getElementById("rando"); // connects to the place where t
 element.innerText = assignedPhrase;
 // END HEADER - RANDOM AFFIRMING PHRASE UPON PAGE LOAD
 
-// SIDE BAR
+// NAVIGATION BAR
+window.onscroll = function () {
+  myFunction();
+};
 
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+// END NAVIGATION BAR
+
+// SIDE BAR
+function sidebar_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function sidebar_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
 // END SIDE BAR

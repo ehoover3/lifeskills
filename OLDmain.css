@@ -1,0 +1,249 @@
+.brandColors {
+  /* CORE BRAND COLORS */
+  color: #58cc02; /* FEATHER GREEN  */
+  color: #89e219; /* MASK GREEN */
+  color: #777777; /* WOLF */
+  color: #ffffff; /* WHITE */
+  /* SECONDARY BRAND COLORS */
+  color: #ff4b4b; /* CARDINAL */
+  color: #ffc800; /* BEE */
+  color: #ce82ff; /* BEETLE */
+  color: #ff9600; /* FOX */
+  color: #2b70c9; /* HUMPBACK */
+  color: #1cb0f6; /* MACAW */
+}
+:root {
+  /* group A */
+  --color_a1_polar: #f7f7f7;
+  --color_a2_swan: #e5e5e5;
+  --color_a3_hare: #afafaf;
+  --color_a4_wolf: #777777;
+  --color_a5_eel: #4b4b4b;
+  /* group B */
+  --color_b1_squid: #ebe3e3;
+  --color_b2_walkingFish: #ffdfe0;
+  --color_b3_flamingo: #ffb2b2;
+  --color_b4_pig: #f5a4a4;
+  --color_b5_crab: #ff7878;
+  --color_b6_cardinal: #ff4b4b;
+  --color_b7_fireAnt: #ea2b2b;
+  /* group C */
+  --color_c1_canary: #fff5d3;
+  --color_c2_duck: #fbe56d;
+  --color_c3_bee: #ffc800;
+  --color_c4_lion: #ffb100;
+  --color_c5_fox: #ff9600;
+  --color_c6_cheetah: #ffce8e;
+  --color_c7_monkey: #e5a259;
+  --color_c8_camel: #e7a601;
+  --color_c9_guineaPig: #cd7900;
+  --color_c10_grizzly: #a56644;
+  /* group c - misc color */
+  --color_c11_upperBeak: #ffcc00;
+  /* group D */
+  --color_d1_seaSponge: #d7ffb8;
+  --color_d2_turtle: #a5ed6e;
+  --color_d3_owl: #58cc02;
+  --color_d4_treeFrog: #58a700;
+  /* groud D - misc color */
+  --color_d5_featherGreen: #58cc02;
+  --color_d6_maskGreen: #89e219;
+
+  /* group E */
+  --color_e1_iguana: #ddf4ff;
+  --color_e2_anchovy: #d2e4e8;
+  --color_e3_beluga: #bbf2ff;
+  --color_e4_moonJelly: #7af0f2;
+  --color_e5_blueJay: #84d8ff;
+  --color_e6_macaw: #1cb0f6;
+  --color_e7_whale: #1899d6;
+  --color_e8_humpback: #2b70c9;
+  --color_e9_narwhal: #1453a3;
+  /* group F */
+  --color_f1_starfish: #ffaade;
+  --color_f2_beetle: #ce82ff;
+  --color_f3_betta: #9069cd;
+  --color_f4_butterfly: #6f4ea1;
+}
+
+body {
+  font-family: "Helvatica", Sans-Serif;
+  font-size: 5vh;
+}
+
+#fullScreen {
+  background-color: var(--color_a4_wolf);
+
+  height: 100vh;
+  width: 56vh;
+
+  /* FLEXBOX */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; /* horizontally space-evenly */
+  /* align-content: space-between; */
+
+  margin-left: auto; /* center horizontally 1/2 */
+  margin-right: auto; /* center horizontally 2/2 */
+}
+
+/* AREA1 (X, PROGRESS_BAR, HEARTS) */
+#x {
+  padding-top: 0.5vh; /* adds to height */
+  height: 9.5vh;
+  padding-left: 2.5vh; /* adds to width */
+  padding-right: 1vh; /* adds to width */
+  width: 6.5vh;
+
+  font-size: 7vh;
+}
+
+#progressBarContainer {
+  padding-top: 2vh; /* adds to height */
+  height: 8vh;
+  padding-right: 2vh; /* adds to width */
+  width: 34vh;
+}
+
+#myProgressBar {
+  width: 100%;
+  background-color: var(--color_a3_hare);
+  border-radius: 25px; /* rounded corner */
+}
+
+#myBar {
+  width: 0%;
+  height: 5vh;
+  background-color: var(--color_d4_treeFrog);
+  border-radius: 25px; /* rounded corner */
+}
+
+#hearts {
+  padding-top: 1.5vh; /* adds to height */
+  height: 8.5vh;
+
+  width: 10vh;
+}
+
+/* AREA2 (INSTRUCTIONS) */
+#instructions {
+  height: 10vh;
+  width: 56vh;
+}
+
+/* AREA3 (ANSWER BOXES) */
+#box1,
+#box2,
+#box3,
+#box4 {
+  background-color: var(--color_a3_hare);
+
+  outline: 2px solid var(--color_a1_polar);
+  height: 25vh;
+  width: 25vh;
+  margin-top: 2vh;
+}
+
+/* AREA4 (BLANK, LIGHT BULB, CHECK) */
+#lightBulb {
+  background-color: var(--color_a3_hare);
+  box-shadow: 0px 7px 5px var(--color_d4_treeFrog);
+  color: var(--color_a1_polar); /* text color */
+
+  border-radius: 25px; /* rounded corner */
+
+  height: 7vh;
+  width: 10vh;
+
+  text-align: center;
+
+  position: relative;
+  top: -2vh;
+
+  font-size: 5vh;
+}
+
+#check {
+  background-color: var(--color_a3_hare);
+  box-shadow: 0px 7px 5px var(--color_d4_treeFrog);
+  color: var(--color_a1_polar); /* text color */
+
+  border-radius: 25px; /* rounded corner */
+
+  height: 7vh;
+  width: 40vh;
+
+  text-align: center;
+
+  position: relative;
+  top: -2vh;
+
+  font-size: 5vh;
+}
+
+/* AREA5  (HIDDEN BOXES) */
+#hiddenContainer {
+  height: 23vh;
+  width: 56vh;
+
+  background-color: var(--color_d2_turtle);
+  outline: 2px solid var(--color_a1_polar);
+
+  position: relative;
+  /* top: -19.2vh; */
+  top: -26vh;
+
+  text-align: center;
+  visibility: hidden;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#hiddenAmazing {
+  height: 7vh;
+  width: 40vh;
+  padding-left: 4vh;
+  text-align: left;
+}
+#hiddenIcon1 {
+  height: 7vh;
+  width: 6vh;
+}
+#hiddenIcon2 {
+  height: 7vh;
+  width: 6vh;
+}
+#hiddenBlank1 {
+  width: 56vh;
+  height: 4vh;
+}
+
+#hiddenContinue {
+  background-color: var(--color_d5_featherGreen);
+
+  border-radius: 25px; /* rounded corner */
+  box-shadow: 0px 7px 5px var(--color_d4_treeFrog);
+  color: var(--color_a1_polar);
+
+  height: 7vh;
+  width: 52vh;
+  font-size: 5vh;
+
+  margin-left: auto; /* center horizontally 1/2 */
+  margin-right: auto; /* center horizontally 2/2 */
+}
+
+#hiddenBlank2 {
+  width: 56vh;
+  height: 1.5vh;
+}
+
+/* OTHER */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 20vh;
+  width: 20vh;
+}

@@ -1,14 +1,5 @@
-<!-- THINGS I'VE DONE TO THIS WEBSITE -->
-<!-- 1. Responsive Website -->
-<!-- 2. Header has a new affirming quote each time the page loads -->
-<!-- 3. Navbar is sticky on the scroll down -->
-<!-- 4. Add a sidebar w/ Hamburger button -->
-<!-- 5. Flip card -->
-
-<!-- FUTURE FEATURES/FIXES -->
-<!-- 1. input form -->
-<!-- WATCH THIS https://www.youtube.com/watch?v=dIyVTjJAkLw -->
-<!-- CHALLENGE ACCEPTED:  Make a nav bar with out w3 schools -->
+<!-- NOTES -->
+<!-- fire emoji --><!-- &#128293; -->
 
 <!DOCTYPE html>
 <html>
@@ -24,115 +15,46 @@
   </head>
 
   <body>
-<!-- SIDEBAR -->
-<body>
-  <!-- Sidebar -->
-  <div
-    class="sidebar-sidebar sidebar-bar-block sidebar-animate-left"
-    style="display: none; z-index: 5"
-    id="mySidebar"
-  >
-    <button class="sidebar-bar-item sidebar-button sidebar-large" onclick="sidebar_close()">
-      Close &times;
-    </button>
-    <a href="#" class="sidebar-bar-item sidebar-button">Link 1</a>
-    <a href="#" class="sidebar-bar-item sidebar-button">Link 2</a>
-    <a href="#" class="sidebar-bar-item sidebar-button">Link 3</a>
-  </div>
-  <!-- Page Content -->
-  <div
-    class="sidebar-overlay sidebar-animate-opacity"
-    onclick="sidebar_close()"
-    style="cursor: pointer"
-    id="myOverlay"
-  ></div>
-  <div>
-    <button class="sidebar-button sidebar-white sidebar-xxlarge" onclick="sidebar_open()">
-      &#9776;
-    </button>
-  </div>
-  <!-- END SIDEBAR -->
-
-    <!-- NAVIGATION BAR -->
-    <ul>
-      <div class="navigationBar">
-        <div>
-          <li><a class="active left" href="#home">Read People</a></li>
-        </div>
-        <div>
-          <li><a class="middle" href="#home">A</a></li>
-          <li><a class="middle" href="#home">B</a></li>
-          <li><a class="middle" href="#home">C</a></li>
-        </div>
-        <div>
-          <li><a class="right" href="#home">Shop</a></li>
-          <li><a class="right" href="#home">My Account</a></li>
+    <div class="quizGame">
+      <div class="top">
+        <div class="top_container_x_AND_progressBar_AND_hearts">
+          <div class="top_x">X</div>
+          <div class="top_progressBar"></div>
+          <div class="top_hearts">&#128420;5</div>
         </div>
       </div>
-    </ul>
-    <!-- END NAVIGATION BAR -->
-
-
-
-    <div class="header">
-      <h2 id="rando"></h2>
-    </div>
-
-    <div class="row">
-      <div class="card">
-        <h2>TITLE HEADING</h2>
-        <h5>Title description, Dec 7, 2017</h5>
-        <div class="fakeimg" style="height: 200px">Image</div>
-        <p>Some text..</p>
-        <p>blah blah blah1.</p>
-      </div>
-      <div class="card">
-        <h2>TITLE HEADING</h2>
-        <h5>Title description, Sep 2, 2017</h5>
-        <div class="fakeimg" style="height: 200px">Image</div>
-        <p>Some text..</p>
-        <p>blah blah blah2.</p>
-      </div>
-    </div>
-
-    <div class="footer">
-      <h2>Footer</h2>
-      <!-- FLIP CARD -->
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img
-              src="./photo1.png"
-              alt="Avatar"
-              style="width: 200px; height: 300px"
-            />
+      <div class="middle">
+        <div class="middle_instructions">INSTRUCTIONS</div>
+        <div class="middle_answerBoxes">
+          <div class="middle_answer1">
+            <div class="middle_answer1_image"></div>
+            <div class="middle_answer1_text">ANSWER 1</div>
           </div>
-          <div class="flip-card-back">
-            <h1>Eric Hoover</h1>
-            <p>Software Engineer</p>
+          <div class="middle_answer2">
+            <div class="middle_answer2_image"></div>
+            <div class="middle_answer2_text">ANSWER 2</div>
+          </div>
+          <div class="middle_answer3">
+            <div class="middle_answer3_image"></div>
+            <div class="middle_answer3_text">ANSWER 3</div>
+          </div>
+          <div class="middle_answer4">
+            <div class="middle_answer4_image"></div>
+            <div class="middle_answer4_text">ANSWER 4</div>
           </div>
         </div>
       </div>
-      <!-- END FLIP CARD -->
+      <div class="bottom">
+        <div class="bottom_container_skipButton_AND_checkButton">
+          <div class="bottom_skipButton">
+            <div class="bottom_skipButton_text">SKIP</div>
+          </div>
+            <div class="bottom_checkButton">
+            <div class="bottom_checkButton_text">CHECK</div>
+          </div>
+      </div>
     </div>
-    <!-- SOCIAL MEDIA BUTTONS -->
-    <!-- add code here -->
-    <!-- END SOCIAL MEDIA BUTTONS -->
 
-        <!-- HAMBURGER MENU  -->
-        <div class="hamburgerContainer right" onclick="hamburgerFunction(this)">
-          <div class="hamburgerBar1"></div>
-          <div class="hamburgerBar2"></div>
-          <div class="hamburgerBar3"></div>
-        </div>
-        <!-- END HAMBURGER MENU -->
-
+    <script src="./lifeskills.js"></script>
   </body>
-
-  <script src="./lifeskills.js"></script>
 </html>
-</body>
-
-
-
-

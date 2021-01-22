@@ -1,0 +1,73 @@
+<!-- NOTES -->
+<!-- fire emoji --><!-- &#128293; -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Life Skills</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+
+  <body>
+    <div id="fullScreen">
+      <!-- AREA 1 (X, PROGRESS_BAR, HEARTS) -->
+      <div class="TOP">
+        <div class="container_x_progressBar_hearts">
+          <div id="x" onclick="box.area1_x()">&#10006;</div>
+          <div id="progressBarContainer" onclick="box.area1_progressBar()">
+            <div id="myProgressBar">
+              <div id="myBar"></div>
+            </div>
+          </div>
+          <div id="hearts" onclick="box.area1_hearts()">&#128420;5</div>
+        </div>
+      </div>
+
+      <!-- AREA 2 (INSTRUCTIONS) -->
+      <div class="MIDDLE">
+        <div class="container_instructions_boxes"></div>
+        <div id="instructions"></div>
+
+        <!-- AREA 3 (ANSWER BOXES) -->
+        <div id="box1" onclick="box.area3_box1()">
+          <img src="dog.png" alt="Dog Photo" />
+        </div>
+        <div id="box2" onclick="box.area3_box2()"></div>
+        <div id="box3" onclick="box.area3_box3()"></div>
+        <div id="box4" onclick="box.area3_box4()"></div>
+      </div>
+
+      <!-- AREA 4 (BLANK, LIGHT BULB, CHECK) -->
+      <div class="BOTTOM">
+        <button id="lightBulb" onclick="box.area4_lightBulb()">
+          &#128161;
+        </button>
+        <button id="check" onclick="box.area4_check()">CHECK</button>
+      </div>
+
+      <!-- AREA 5 (HIDDEN BOXES) -->
+      <!-- <div class="AREA5">
+        <div id="hiddenContainer">
+          <div id="hiddenAmazing">Amazing!</div>
+          <div id="hiddenIcon1" onclick="box.area5_hiddenIcon1()">&#9872;</div>
+          <div id="hiddenIcon2" onclick="box.area5_hiddenIcon2()">
+            &#128172;
+          </div>
+          <div id="hiddenBlank1"></div>
+          <button id="hiddenContinue" onclick="box.area5_hiddenContinue()">
+            CONTINUE
+          </button>
+          <div id="hiddenBlank2"></div>
+        </div>
+      </div> -->
+    </div>
+
+    <script src="./lifeskills.js"></script>
+  </body>
+</html>

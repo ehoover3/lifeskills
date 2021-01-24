@@ -1,6 +1,6 @@
 .brandColors {
   /* CORE BRAND COLORS */
-  color: #58cc02; /* FEATHER GREEN  */
+  color: #58cc02; /* FEATHER GREEN */
   color: #89e219; /* MASK GREEN */
   color: #777777; /* WOLF */
   color: #ffffff; /* WHITE */
@@ -86,33 +86,50 @@ body {
   justify-content: center;
 }
 .top_container_x_AND_progressBar_AND_hearts {
-  background-color: var(--color_d4_treeFrog);
+  background-color: var(--color_a1_polar);
   height: 15vh;
   width: 95vw;
-  outline: var(--color_a1_polar) 1px solid;
+  /* outline: var(--color_a1_polar) 1px solid; */
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 .top_x {
-  background-color: var(--color_e6_macaw);
-  height: 10vh;
+  background-color: var(--color_a1_polar);
+  height: 5vh;
   width: 10vw;
-  outline: var(--color_a1_polar) 1px solid;
-  text-align: center;
+  /* outline: var(--color_a1_polar) 1px solid; */
+  text-align: right;
+}
+
+.top_x:hover {
+  color: var(--color_a3_hare);
 }
 .top_progressBar {
+  width: 100%;
   background-color: var(--color_e6_macaw);
-  height: 10vh;
-  width: 75vw;
-  outline: var(--color_a1_polar) 1px solid;
+  height: 5vh;
+  width: 80vw;
+  /* outline: var(--color_a1_polar) 1px solid; */
+  border-radius: 25px; /* rounded corner */
 }
+.top_progressBar_percentComplete {
+  width: 20%;
+  background-color: var(--color_a3_hare);
+  border-radius: 25px; /* rounded corner */
+}
+
 .top_hearts {
-  background-color: var(--color_e6_macaw);
-  height: 10vh;
+  background-color: var(--color_a1_polar);
+  height: 5vh;
   width: 10vw;
-  outline: var(--color_a1_polar) 1px solid;
-  text-align: center;
+  /* outline: var(--color_a1_polar) 1px solid; */
+  text-align: left;
+  /* align-items: center; */
+}
+
+.top_hearts:hover {
+  color: var(--color_a3_hare);
 }
 
 .middle {
@@ -125,7 +142,7 @@ body {
 }
 .middle_instructions {
   background-color: var(--color_a1_polar);
-  height: 10vh;
+  height: 15px;
   width: 100vw;
   outline: var(--color_a1_polar) 1px solid;
   text-align: center;
@@ -150,9 +167,9 @@ body {
   flex-wrap: wrap;
 }
 
-.middle_answer1:hover {
+/* .middle_answer1:hover {
   background-color: var(--color_a2_swan);
-}
+} */
 
 .middle_answer1_image {
   background-color: var(--color_e6_macaw);
@@ -163,7 +180,7 @@ body {
 
 .middle_answer1_text {
   /* background-color: var(--color_a1_polar); */
-  height: 5vh;
+  height: 15px;
   width: 25vw;
   text-align: center;
 }
@@ -177,9 +194,9 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-.middle_answer2:hover {
+/* .middle_answer2:hover {
   background-color: var(--color_a2_swan);
-}
+} */
 
 .middle_answer2_image {
   background-color: var(--color_e6_macaw);
@@ -189,7 +206,7 @@ body {
 }
 .middle_answer2_text {
   /* background-color: var(--color_a1_polar); */
-  height: 5vh;
+  height: 15px;
   width: 25vw;
   text-align: center;
 }
@@ -204,9 +221,9 @@ body {
   flex-wrap: wrap;
 }
 
-.middle_answer3:hover {
+/* .middle_answer3:hover {
   background-color: var(--color_a2_swan);
-}
+} */
 
 .middle_answer3_image {
   background-color: var(--color_e6_macaw);
@@ -216,7 +233,7 @@ body {
 }
 .middle_answer3_text {
   /* background-color: var(--color_a1_polar); */
-  height: 5vh;
+  height: 15px;
   width: 25vw;
   text-align: center;
 }
@@ -230,9 +247,9 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-.middle_answer4:hover {
+/* .middle_answer4:hover {
   background-color: var(--color_a2_swan);
-}
+} */
 
 .middle_answer4_image {
   background-color: var(--color_e6_macaw);
@@ -242,7 +259,7 @@ body {
 }
 .middle_answer4_text {
   /* background-color: var(--color_a1_polar); */
-  height: 5vh;
+  height: 15px;
   width: 25vw;
   text-align: center;
 }
@@ -281,7 +298,7 @@ body {
 
 .bottom_skipButton_text {
   /* background-color: var(--color_a1_polar); */
-  height: 5vh;
+  height: 15px;
   width: 15vw;
   /* outline: var(--color_a1_polar) 1px solid; */
   text-align: center;
@@ -300,7 +317,7 @@ body {
 }
 .bottom_checkButton_text {
   background-color: var(--color_a2_swan);
-  height: 5vh;
+  height: 15px;
   width: 15vw;
   /* outline: var(--color_a1_polar) 1px solid; */
   text-align: center;

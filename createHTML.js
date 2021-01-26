@@ -36,9 +36,11 @@ function createHTML() {
   middle.className = "middle";
   quizGame.appendChild(middle);
 
-  let middle_instructions = document.createElement("div");
-  middle_instructions.className = "middle_instructions";
-  middle.appendChild(middle_instructions);
+  let middle_question = document.createElement("div");
+  middle_question.className = "middle_question";
+  middle_question.innerHTML = "QUESTION 1";
+
+  middle.appendChild(middle_question);
 
   let middle_answerBoxes = document.createElement("div");
   middle_answerBoxes.className = "middle_answerBoxes";
@@ -48,7 +50,9 @@ function createHTML() {
   middle_answer1.className = "middle_answer1";
   middle_answerBoxes.appendChild(middle_answer1);
 
-  let middle_answer1_image = document.createElement("div");
+  let middle_answer1_image = document.createElement("img");
+  middle_answer1_image.src = "dog.png";
+  middle_answer1_image.alt = "dog.png";
   middle_answer1_image.className = "middle_answer1_image";
   middle_answer1.appendChild(middle_answer1_image);
 
@@ -61,7 +65,9 @@ function createHTML() {
   middle_answer2.className = "middle_answer2";
   middle_answerBoxes.appendChild(middle_answer2);
 
-  let middle_answer2_image = document.createElement("div");
+  let middle_answer2_image = document.createElement("img");
+  middle_answer2_image.src = "dog.png";
+  middle_answer2_image.alt = "dog.png";
   middle_answer2_image.className = "middle_answer2_image";
   middle_answer2.appendChild(middle_answer2_image);
 
@@ -74,7 +80,9 @@ function createHTML() {
   middle_answer3.className = "middle_answer3";
   middle_answerBoxes.appendChild(middle_answer3);
 
-  let middle_answer3_image = document.createElement("div");
+  let middle_answer3_image = document.createElement("img");
+  middle_answer3_image.src = "dog.png";
+  middle_answer3_image.alt = "dog.png";
   middle_answer3_image.className = "middle_answer3_image";
   middle_answer3.appendChild(middle_answer3_image);
 
@@ -87,7 +95,10 @@ function createHTML() {
   middle_answer4.className = "middle_answer4";
   middle_answerBoxes.appendChild(middle_answer4);
 
-  let middle_answer4_image = document.createElement("div");
+  let middle_answer4_image = document.createElement("img");
+  middle_answer4_image.src = "/images/dog9.jpg";
+
+  middle_answer4_image.alt = "dog.png";
   middle_answer4_image.className = "middle_answer4_image";
   middle_answer4.appendChild(middle_answer4_image);
 

@@ -89,19 +89,15 @@ body {
   background-color: var(--color_a1_polar);
   height: 15vh;
   width: 95vw;
-  /* outline: var(--color_a1_polar) 1px solid; */
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 .top_x {
   background-color: var(--color_a1_polar);
   height: 5vh;
   width: 10vw;
-  /* outline: var(--color_a1_polar) 1px solid; */
   text-align: right;
 }
-
 .top_x:hover {
   color: var(--color_a3_hare);
 }
@@ -110,7 +106,6 @@ body {
   background-color: var(--color_e6_macaw);
   height: 5vh;
   width: 80vw;
-  /* outline: var(--color_a1_polar) 1px solid; */
   border-radius: 25px; /* rounded corner */
 }
 .top_progressBar_percentComplete {
@@ -118,16 +113,12 @@ body {
   background-color: var(--color_a3_hare);
   border-radius: 25px; /* rounded corner */
 }
-
 .top_hearts {
   background-color: var(--color_a1_polar);
   height: 5vh;
   width: 10vw;
-  /* outline: var(--color_a1_polar) 1px solid; */
   text-align: left;
-  /* align-items: center; */
 }
-
 .top_hearts:hover {
   color: var(--color_a3_hare);
 }
@@ -140,18 +131,16 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
-.middle_instructions {
+.middle_question {
   background-color: var(--color_a1_polar);
   height: 15px;
   width: 100vw;
-  outline: var(--color_a1_polar) 1px solid;
   text-align: center;
 }
 .middle_answerBoxes {
   background-color: var(--color_a1_polar);
   height: 55vh;
   width: 55vw;
-  /* outline: var(--color_a3_hare) 1px solid; */
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -166,25 +155,17 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-
-/* .middle_answer1:hover {
-  background-color: var(--color_a2_swan);
-} */
-
 .middle_answer1_image {
   background-color: var(--color_e6_macaw);
   height: 20vh;
   width: 20vw;
   outline: var(--red) 1px solid;
 }
-
 .middle_answer1_text {
-  /* background-color: var(--color_a1_polar); */
   height: 15px;
   width: 25vw;
   text-align: center;
 }
-
 .middle_answer2 {
   background-color: var(--color_a1_polar);
   height: 25vh;
@@ -194,10 +175,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-/* .middle_answer2:hover {
-  background-color: var(--color_a2_swan);
-} */
-
 .middle_answer2_image {
   background-color: var(--color_e6_macaw);
   height: 20vh;
@@ -205,12 +182,10 @@ body {
   outline: var(--color_a1_polar) 1px solid;
 }
 .middle_answer2_text {
-  /* background-color: var(--color_a1_polar); */
   height: 15px;
   width: 25vw;
   text-align: center;
 }
-
 .middle_answer3 {
   background-color: var(--color_a1_polar);
   height: 25vh;
@@ -220,11 +195,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-
-/* .middle_answer3:hover {
-  background-color: var(--color_a2_swan);
-} */
-
 .middle_answer3_image {
   background-color: var(--color_e6_macaw);
   height: 20vh;
@@ -232,12 +202,10 @@ body {
   outline: var(--color_a1_polar) 1px solid;
 }
 .middle_answer3_text {
-  /* background-color: var(--color_a1_polar); */
   height: 15px;
   width: 25vw;
   text-align: center;
 }
-
 .middle_answer4 {
   background-color: var(--color_a1_polar);
   height: 25vh;
@@ -247,10 +215,6 @@ body {
   justify-content: center;
   flex-wrap: wrap;
 }
-/* .middle_answer4:hover {
-  background-color: var(--color_a2_swan);
-} */
-
 .middle_answer4_image {
   background-color: var(--color_e6_macaw);
   height: 20vh;
@@ -258,7 +222,6 @@ body {
   outline: var(--color_a1_polar) 1px solid;
 }
 .middle_answer4_text {
-  /* background-color: var(--color_a1_polar); */
   height: 15px;
   width: 25vw;
   text-align: center;
@@ -276,16 +239,13 @@ body {
   background-color: var(--color_a1_polar);
   height: 15vh;
   width: 90vw;
-  /* outline: var(--color_a1_polar) 1px solid; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .bottom_skipButton {
-  /* background-color: var(--color_a1_polar); */
   height: 10vh;
   width: 25vw;
-  /* outline: var(--color_a3_hare) 1px solid; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -295,20 +255,15 @@ body {
 .bottom_skipButton:hover {
   background-color: var(--color_a2_swan);
 }
-
 .bottom_skipButton_text {
-  /* background-color: var(--color_a1_polar); */
   height: 15px;
   width: 15vw;
-  /* outline: var(--color_a1_polar) 1px solid; */
   text-align: center;
 }
-
 .bottom_checkButton {
   background-color: var(--color_a2_swan);
   height: 10vh;
   width: 25vw;
-  /* outline: var(--color_a3_hare) 1px solid; */
   border-radius: 25px; /* rounded corner */
 
   display: flex;
@@ -319,6 +274,5 @@ body {
   background-color: var(--color_a2_swan);
   height: 15px;
   width: 15vw;
-  /* outline: var(--color_a1_polar) 1px solid; */
   text-align: center;
 }

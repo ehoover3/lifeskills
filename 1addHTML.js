@@ -152,14 +152,15 @@ function addQuizHTML() {
   top_x.innerHTML = "X";
   top_container_x_AND_progressBar_AND_hearts.appendChild(top_x);
 
-  let top_progressBar = document.createElement("div");
-  top_progressBar.className = "quizGame_top_progressBar";
-  top_container_x_AND_progressBar_AND_hearts.appendChild(top_progressBar);
+  let quizGame_top_myFullBar = document.createElement("div");
+  quizGame_top_myFullBar.className = "quizGame_top_myFullBar";
+  top_container_x_AND_progressBar_AND_hearts.appendChild(
+    quizGame_top_myFullBar
+  );
 
-  let top_progressBar_percentComplete = document.createElement("div");
-  top_progressBar_percentComplete.className =
-    "quizGame_top_progressBar_percentComplete";
-  top_progressBar.appendChild(top_progressBar_percentComplete);
+  let quizGame_top_myBar = document.createElement("div");
+  quizGame_top_myBar.className = "quizGame_top_myBar";
+  quizGame_top_myFullBar.appendChild(quizGame_top_myBar);
 
   let top_hearts = document.createElement("div");
   top_hearts.className = "quizGame_top_hearts";

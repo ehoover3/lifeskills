@@ -1,22 +1,151 @@
 // TO DO:  Randomize where answer images
 
-let i = 0;
-let myBar = document.getElementById("myBar");
+let i = 1;
+let quizGame_top_myBar = document.querySelector(".quizGame_top_myBar");
+let width = 0;
+quizGame_top_myBar.style.width = width + "%";
 
-function move() {
-  if (i === 0) {
-    i = 1;
-    let width = 1;
-    let id = setInterval(frame, 10); //setInterval(function, milliseconds)
+function progressBar() {
+  //  if (i === 0) {
+  let setIntervalFX = setInterval(frame, 10); //setInterval(function, milliseconds)
 
-    function frame() {
-      if (width >= 100) {
-        i = 0;
-        clearInterval(id); //clearInterval stops the setInterval function
-      } else {
-        width++;
-        myBar.style.width = width + "%";
-      }
+  function frame() {
+    switch (i) {
+      case 1:
+        if (width >= 100 / (myQuestions.length / 1)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 2:
+        if (width >= 100 / (myQuestions.length / 2)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 3:
+        if (width >= 100 / (myQuestions.length / 3)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 4:
+        if (width >= 100 / (myQuestions.length / 4)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 5:
+        if (width >= 100 / (myQuestions.length / 5)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 6:
+        if (width >= 100 / (myQuestions.length / 6)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 7:
+        if (width >= 100 / (myQuestions.length / 7)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 8:
+        if (width >= 100 / (myQuestions.length / 8)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 9:
+        if (width >= 100 / (myQuestions.length / 9)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 10:
+        if (width >= 100 / (myQuestions.length / 10)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 11:
+        if (width >= 100 / (myQuestions.length / 11)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 12:
+        if (width >= 100 / (myQuestions.length / 12)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 13:
+        if (width >= 100 / (myQuestions.length / 13)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 14:
+        if (width >= 100 / (myQuestions.length / 14)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
+      case 15:
+        if (width >= 100 / (myQuestions.length / 15)) {
+          i += 1;
+          clearInterval(setIntervalFX); //clearInterval stops the setInterval function
+        } else {
+          width++;
+          quizGame_top_myBar.style.width = width + "%";
+        }
+        break;
     }
   }
 }
@@ -75,6 +204,7 @@ let quizGame_bottom_checkButton_click = function (event) {
     quizGame_middle_answer4.style.backgroundColor = "#f7f7f7"; // POLAR // reset css for next question
     quizGame_bottom_checkButton.style.backgroundColor = "#e5e5e5"; // SWAN // reset css for next question
     quizGame_bottom_checkButton_text.style.backgroundColor = "#e5e5e5"; // SWAN // reset css for next question
+    progressBar();
   }
 };
 // *******************************************************************

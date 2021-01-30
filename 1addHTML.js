@@ -18,64 +18,69 @@ function addMainHTML() {
   main_top_subject.appendChild(main_top_subject_span);
 
   // (SUBJECT) DROP DOWN
-  let dropDownContainer = document.createElement("div");
-  dropDownContainer.id = "dropDownContainer";
-  dropDownContainer.className = "dropDownContainer";
-  main_top_subject.appendChild(dropDownContainer);
+  let subject_dropDownContainer = document.createElement("div");
+  subject_dropDownContainer.className = "subject_dropDownContainer";
+  main_top_subject.appendChild(subject_dropDownContainer);
 
   let dogContainer = document.createElement("div");
   dogContainer.setAttribute("href", "#dog");
   dogContainer.className = "dogContainer";
-  dropDownContainer.appendChild(dogContainer);
+  subject_dropDownContainer.appendChild(dogContainer);
 
-  let dogEmoji = document.createElement("a");
+  let dogEmoji = document.createElement("div");
   dogEmoji.className = "dogEmoji";
   dogEmoji.innerHTML = "&#128054;";
-  dogEmoji.style.textAlign = "center";
   dogContainer.appendChild(dogEmoji);
 
-  let dogText = document.createElement("a");
+  let dogText = document.createElement("div");
   dogText.className = "dogText";
   dogText.innerHTML = "Dog";
-  dogText.style.fontSize = "7vh";
-  dogText.style.textAlign = "center";
   dogContainer.appendChild(dogText);
 
-  let catContainer = document.createElement("a");
+  let catContainer = document.createElement("div");
   catContainer.setAttribute("href", "#cat");
   catContainer.className = "catContainer";
-  dropDownContainer.appendChild(catContainer);
+  subject_dropDownContainer.appendChild(catContainer);
 
-  let catEmoji = document.createElement("a");
+  let catEmoji = document.createElement("div");
   catEmoji.className = "catEmoji";
   catEmoji.innerHTML = "&#128570;";
-  catEmoji.style.textAlign = "center";
   catContainer.appendChild(catEmoji);
 
-  let catText = document.createElement("a");
+  let catText = document.createElement("div");
   catText.className = "catText";
   catText.innerHTML = "Cat";
-  catText.style.fontSize = "7vh";
-  catText.style.textAlign = "center";
   catContainer.appendChild(catText);
 
-  let monkeyContainer = document.createElement("a");
+  let monkeyContainer = document.createElement("div");
   monkeyContainer.setAttribute("href", "#monkey");
   monkeyContainer.className = "monkeyContainer";
-  dropDownContainer.appendChild(monkeyContainer);
+  subject_dropDownContainer.appendChild(monkeyContainer);
 
-  let monkeyEmoji = document.createElement("a");
+  let monkeyEmoji = document.createElement("div");
   monkeyEmoji.className = "monkeyEmoji";
   monkeyEmoji.innerHTML = "&#128585;";
-  monkeyEmoji.style.textAlign = "center";
   monkeyContainer.appendChild(monkeyEmoji);
 
-  let monkeyText = document.createElement("a");
+  let monkeyText = document.createElement("div");
   monkeyText.className = "monkeyText";
   monkeyText.innerHTML = "Monkey";
-  monkeyText.style.fontSize = "7vh";
-  monkeyText.style.textAlign = "center";
   monkeyContainer.appendChild(monkeyText);
+
+  let plusSignContainer = document.createElement("div");
+  plusSignContainer.setAttribute("href", "#plusSign");
+  plusSignContainer.className = "plusSignContainer";
+  subject_dropDownContainer.appendChild(plusSignContainer);
+
+  let plusSignEmoji = document.createElement("div");
+  plusSignEmoji.className = "plusSignEmoji";
+  plusSignEmoji.innerHTML = "&#128778;";
+  plusSignContainer.appendChild(plusSignEmoji);
+
+  let plusSignText = document.createElement("div");
+  plusSignText.className = "plusSignText";
+  plusSignText.innerHTML = "Subject";
+  plusSignContainer.appendChild(plusSignText);
   // END (SUBJECT) DROP DOWN
 
   let main_top_crowns = document.createElement("div");

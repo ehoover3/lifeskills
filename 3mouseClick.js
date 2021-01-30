@@ -4,10 +4,9 @@
 // TO DO:  Outline the dropbox items that is selected & make it the top option in the dropbox
 
 // CLICK (main_top_subject) --> DROP DOWN BUTTON
-function showDropDownClick() {
-  dropDownContainer.classList.toggle("show"); // toggle hiding/showing dropdown content
+function subject_showDropDownClick() {
+  subject_dropDownContainer.classList.toggle("show"); // toggle hiding/showing dropdown content
 }
-
 // Close dropdown if the user clicks outside of it
 // window.onclick = function (event) {
 //   if (!event.target.matches(".dropDownContainer")) {
@@ -35,6 +34,11 @@ let catFunctionClick = function () {
 // CLICK (monkey) --> UPDATE (main_top_subject) INNERHTML
 let monkeyFunctionClick = function () {
   main_top_subject_span.innerHTML = "&#128585;"; // monkey emoji
+};
+
+// CLICK (plusSign) --> ???
+let plusSignFunctionClick = function () {
+  return; // TO DO: ADD CODE LATER
 };
 
 // CLICK (main_middle_circle2) --> ???
@@ -252,11 +256,12 @@ function progressBar() {
 }
 
 // CLICK LISTENERS
-main_top_subject.addEventListener("click", showDropDownClick);
+main_top_subject.addEventListener("click", subject_showDropDownClick);
 
 dogContainer.addEventListener("click", dogFunctionClick);
 catContainer.addEventListener("click", catFunctionClick);
 monkeyContainer.addEventListener("click", monkeyFunctionClick);
+plusSignContainer.addEventListener("click", plusSignFunctionClick);
 
 main_middle_circle2.addEventListener("click", main_middle_circle2_click);
 main_middle_circle10.addEventListener("click", main_middle_circle10_click);

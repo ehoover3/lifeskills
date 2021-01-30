@@ -1,10 +1,13 @@
 // GLOBAL VARIABLES - PART 1 OF 3 (HTML VARIABLES)
 let main_top_subject = document.querySelector(".main_top_subject");
 let main_top_subject_span = document.querySelector(".main_top_subject_span");
-dropDownContainer = document.querySelector(".dropDownContainer");
+let subject_dropDownContainer = document.querySelector(
+  ".subject_dropDownContainer"
+);
 let dogContainer = document.querySelector(".dogContainer");
 let catContainer = document.querySelector(".catContainer");
 let monkeyContainer = document.querySelector(".monkeyContainer");
+let plusSignContainer = document.querySelector(".plusSignContainer");
 
 let main_middle_circle2 = document.querySelector(".main_middle_circle2");
 let main_middle_circle10 = document.querySelector(".main_middle_circle10");

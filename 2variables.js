@@ -1,17 +1,17 @@
 // GLOBAL VARIABLES - PART 1 OF 3 (HTML VARIABLES)
+let main_top_subject = document.querySelector(".main_top_subject");
+let main_top_subject_span = document.querySelector(".main_top_subject_span");
+dropDownContainer = document.querySelector(".dropDownContainer");
+let dogContainer = document.querySelector(".dogContainer");
+let catContainer = document.querySelector(".catContainer");
+let monkeyContainer = document.querySelector(".monkeyContainer");
 
 let main_middle_circle2 = document.querySelector(".main_middle_circle2");
 let main_middle_circle10 = document.querySelector(".main_middle_circle10");
 
 let quizGame = document.querySelector(".quizGame");
 let quizGame_top_x = document.querySelector(".quizGame_top_x");
-
-let quizGame_top_progressBar = document.querySelector(
-  ".quizGame_top_progressBar"
-);
-let quizGame_top_progressBar_percentComplete = document.querySelector(
-  ".quizGame_top_progressBar_percentComplete"
-);
+let quizGame_top_myBar = document.querySelector(".quizGame_top_myBar");
 let quizGame_top_hearts = document.querySelector(".quizGame_top_hearts");
 let quizGame_middle_question = document.querySelector(
   ".quizGame_middle_question"

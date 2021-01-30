@@ -1,3 +1,5 @@
+/* TO DO:  Make the following into the default no color icons, then add color when hovered or clicked .main_bottom_quiz, .main_bottom_story, .main_bottom_profile, .main_bottom_league, .main_bottom_shop */
+
 .brandColors {
   /* CORE BRAND COLORS */
   color: #58cc02; /* FEATHER GREEN */
@@ -70,6 +72,7 @@ body {
   font-family: "Helvatica", Sans-Serif;
   font-size: 5vh;
   margin: 0vh;
+  padding: 0vh;
 }
 .main_top {
   background-color: var(--color_a1_polar);
@@ -80,33 +83,56 @@ body {
   justify-content: space-between;
   color: var(--color_a3_hare);
 }
-.main_top_language {
-  outline: var(--color_f3_betta) 1px solid;
-  height: 5vh;
+.main_top_subject {
+  /* outline: var(--color_f3_betta) 1px solid; */
+  height: 15vh;
+  font-size: 12.5vh;
 }
-.main_top_language:hover {
-  color: var(--color_a5_eel);
+
+/* subject --> drop down button */
+.dropDownContainer {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
+
+.dropDownContainer a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: flex;
+}
+
+/* end subject --> drop down button */
+
 .main_top_crowns {
-  outline: var(--color_f3_betta) 1px solid;
-  height: 5vh;
+  /* outline: var(--color_f3_betta) 1px solid; */
+  height: 15vh;
+  font-size: 12.5vh;
 }
-.main_top_crowns:hover {
-  color: var(--color_a5_eel);
-}
+
 .main_top_streak {
-  outline: var(--color_f3_betta) 1px solid;
-  height: 5vh;
+  /* outline: var(--color_f3_betta) 1px solid; */
+  height: 15vh;
+  font-size: 12.5vh;
 }
-.main_top_streak:hover {
-  color: var(--color_a5_eel);
-}
+
 .main_top_hearts {
-  outline: var(--color_f3_betta) 1px solid;
-  height: 5vh;
-}
-.main_top_hearts:hover {
-  color: var(--color_a5_eel);
+  /* outline: var(--color_f3_betta) 1px solid; */
+  height: 15vh;
+  font-size: 12.5vh;
 }
 
 .main_middle {
@@ -120,74 +146,74 @@ body {
 }
 /* ROW 1 */
 .main_middle_circle1 {
-  outline: var(--color_f3_betta) 1px solid;
+  /* outline: var(--color_f3_betta) 1px solid; */
   height: 15vh;
   width: 42.5vw;
 }
 .main_middle_circle2 {
-  background-color: var(--color_c11_upperBeak);
+  background-color: var(--color_e5_blueJay);
   height: 15vh;
   width: 15vw;
   border-radius: 25px; /* rounded corner */
 }
 .main_middle_circle3 {
-  outline: var(--color_f3_betta) 1px solid;
+  /* outline: var(--color_f3_betta) 1px solid; */
   height: 15vh;
   width: 42.5vw;
 }
 /* ROW 2 */
 .main_middle_circle4 {
-  outline: var(--color_f3_betta) 1px solid;
+  /* outline: var(--color_f3_betta) 1px solid; */
   height: 15vh;
   width: 23.33333vw;
 }
 .main_middle_circle5 {
-  background-color: var(--color_c11_upperBeak);
+  background-color: var(--color_e5_blueJay);
   height: 15vh;
   width: 15vw;
   border-radius: 25px; /* rounded corner */
 }
 .main_middle_circle6 {
-  outline: var(--color_f3_betta) 1px solid;
+  /* outline: var(--color_f3_betta) 1px solid; */
   height: 15vh;
   width: 23.33333vw;
 }
 .main_middle_circle7 {
-  background-color: var(--color_c11_upperBeak);
+  background-color: var(--color_e5_blueJay);
   height: 15vh;
   width: 15vw;
   border-radius: 25px; /* rounded corner */
 }
 .main_middle_circle8 {
-  outline: var(--color_f3_betta) 1px solid;
+  /* outline: var(--color_f3_betta) 1px solid; */
   height: 15vh;
   width: 23.33333vw;
 }
 /* ROW 3 */
 .main_middle_circle9 {
-  outline: var(--color_f3_betta) 1px solid;
+  /* outline: var(--color_f3_betta) 1px solid; */
   height: 15vh;
   width: 23.33333vw;
 }
 .main_middle_circle10 {
-  background-color: var(--color_c11_upperBeak);
+  background-color: var(--color_e5_blueJay);
   height: 15vh;
   width: 15vw;
   border-radius: 25px; /* rounded corner */
 }
 .main_middle_circle11 {
-  outline: var(--color_f3_betta) 1px solid;
+  /* outline: var(--color_f3_betta) 1px solid; */
   height: 15vh;
   width: 23.33333vw;
 }
 .main_middle_circle12 {
-  background-color: var(--color_c11_upperBeak);
+  background-color: var(--color_e5_blueJay);
   height: 15vh;
   width: 15vw;
   border-radius: 25px; /* rounded corner */
 }
 .main_middle_circle13 {
-  outline: var(--color_f3_betta) 1px solid;
+  /* outline: var(--color_f3_betta) 1px solid; */
   height: 15vh;
   width: 23.33333vw;
 }
@@ -201,20 +227,22 @@ body {
   outline: var(--color_a3_hare) 1px solid;
   color: var(--color_a3_hare);
 }
-.main_bottom_quiz:hover {
-  color: var(--color_a5_eel);
+.main_bottom_quiz {
+  font-size: 12.5vh;
 }
-.main_bottom_story:hover {
-  color: var(--color_a5_eel);
+
+.main_bottom_story {
+  font-size: 12.5vh;
 }
-.main_bottom_profile:hover {
-  color: var(--color_a5_eel);
+
+.main_bottom_profile {
+  font-size: 12.5vh;
 }
-.main_bottom_league:hover {
-  color: var(--color_a5_eel);
+.main_bottom_league {
+  font-size: 12.5vh;
 }
-.main_bottom_shop:hover {
-  color: var(--color_a5_eel);
+.main_bottom_shop {
+  font-size: 12.5vh;
 }
 
 #quizGame {

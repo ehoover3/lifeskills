@@ -8,24 +8,89 @@ function addMainHTML() {
   main_top.className = "main_top";
   main.appendChild(main_top);
 
-  let main_top_language = document.createElement("div");
-  main_top_language.className = "main_top_language";
-  main_top_language.innerHTML = "Language";
-  main_top.appendChild(main_top_language);
+  let main_top_subject = document.createElement("div");
+  main_top_subject.className = "main_top_subject";
+  main_top.appendChild(main_top_subject);
+
+  let main_top_subject_span = document.createElement("span");
+  main_top_subject_span.className = "main_top_subject_span";
+  main_top_subject_span.innerHTML = "&#128054"; // dog emoji
+  main_top_subject.appendChild(main_top_subject_span);
+
+  // (SUBJECT) DROP DOWN
+  let dropDownContainer = document.createElement("div");
+  dropDownContainer.id = "dropDownContainer";
+  dropDownContainer.className = "dropDownContainer";
+  main_top_subject.appendChild(dropDownContainer);
+
+  let dogContainer = document.createElement("div");
+  dogContainer.setAttribute("href", "#dog");
+  dogContainer.className = "dogContainer";
+  dropDownContainer.appendChild(dogContainer);
+
+  let dogEmoji = document.createElement("a");
+  dogEmoji.className = "dogEmoji";
+  dogEmoji.innerHTML = "&#128054;";
+  dogEmoji.style.textAlign = "center";
+  dogContainer.appendChild(dogEmoji);
+
+  let dogText = document.createElement("a");
+  dogText.className = "dogText";
+  dogText.innerHTML = "Dog";
+  dogText.style.fontSize = "7vh";
+  dogText.style.textAlign = "center";
+  dogContainer.appendChild(dogText);
+
+  let catContainer = document.createElement("a");
+  catContainer.setAttribute("href", "#cat");
+  catContainer.className = "catContainer";
+  dropDownContainer.appendChild(catContainer);
+
+  let catEmoji = document.createElement("a");
+  catEmoji.className = "catEmoji";
+  catEmoji.innerHTML = "&#128570;";
+  catEmoji.style.textAlign = "center";
+  catContainer.appendChild(catEmoji);
+
+  let catText = document.createElement("a");
+  catText.className = "catText";
+  catText.innerHTML = "Cat";
+  catText.style.fontSize = "7vh";
+  catText.style.textAlign = "center";
+  catContainer.appendChild(catText);
+
+  let monkeyContainer = document.createElement("a");
+  monkeyContainer.setAttribute("href", "#monkey");
+  monkeyContainer.className = "monkeyContainer";
+  dropDownContainer.appendChild(monkeyContainer);
+
+  let monkeyEmoji = document.createElement("a");
+  monkeyEmoji.className = "monkeyEmoji";
+  monkeyEmoji.innerHTML = "&#128585;";
+  monkeyEmoji.style.textAlign = "center";
+  monkeyContainer.appendChild(monkeyEmoji);
+
+  let monkeyText = document.createElement("a");
+  monkeyText.className = "monkeyText";
+  monkeyText.innerHTML = "Monkey";
+  monkeyText.style.fontSize = "7vh";
+  monkeyText.style.textAlign = "center";
+  monkeyContainer.appendChild(monkeyText);
+  // END (SUBJECT) DROP DOWN
 
   let main_top_crowns = document.createElement("div");
   main_top_crowns.className = "main_top_crowns";
-  main_top_crowns.innerHTML = "Crowns";
+  main_top_crowns.innerHTML = "&#128081"; // crown emoji
   main_top.appendChild(main_top_crowns);
 
   let main_top_streak = document.createElement("div");
   main_top_streak.className = "main_top_streak";
-  main_top_streak.innerHTML = "Streak";
+  main_top_streak.innerHTML = "&#128293"; // fire emoji
   main_top.appendChild(main_top_streak);
 
   let main_top_hearts = document.createElement("div");
   main_top_hearts.className = "main_top_hearts";
-  main_top_hearts.innerHTML = "Hearts";
+  main_top_hearts.innerHTML = "&#128420;"; // heart emoji
   main_top.appendChild(main_top_hearts);
 
   // MIDDLE
@@ -106,27 +171,27 @@ function addMainHTML() {
 
   let main_bottom_quiz = document.createElement("div");
   main_bottom_quiz.className = "main_bottom_quiz";
-  main_bottom_quiz.innerHTML = "Quiz";
+  main_bottom_quiz.innerHTML = "&#128218;"; // books emoji
   main_bottom.appendChild(main_bottom_quiz);
 
   let main_bottom_story = document.createElement("div");
   main_bottom_story.className = "main_bottom_story";
-  main_bottom_story.innerHTML = "Story";
+  main_bottom_story.innerHTML = "&#128506;"; // world map emoji
   main_bottom.appendChild(main_bottom_story);
 
   let main_bottom_profile = document.createElement("div");
   main_bottom_profile.className = "main_bottom_profile";
-  main_bottom_profile.innerHTML = "Profile";
+  main_bottom_profile.innerHTML = "&#127968;"; // house emoji
   main_bottom.appendChild(main_bottom_profile);
 
   let main_bottom_league = document.createElement("div");
   main_bottom_league.className = "main_bottom_league";
-  main_bottom_league.innerHTML = "League";
+  main_bottom_league.innerHTML = "&#127967;"; // stadium emoji
   main_bottom.appendChild(main_bottom_league);
 
   let main_bottom_shop = document.createElement("div");
   main_bottom_shop.className = "main_bottom_shop";
-  main_bottom_shop.innerHTML = "Shop";
+  main_bottom_shop.innerHTML = "&#127974;"; // bank emoji
   main_bottom.appendChild(main_bottom_shop);
 }
 addMainHTML();
@@ -186,8 +251,8 @@ function addQuizHTML() {
   middle_answerBoxes.appendChild(middle_answer1);
 
   let middle_answer1_image = document.createElement("img");
-  middle_answer1_image.src = "dog.png";
-  middle_answer1_image.alt = "dog.png";
+  middle_answer1_image.src = "/images/dog.png";
+  middle_answer1_image.alt = "/images/dog.png";
   middle_answer1_image.className = "quizGame_middle_answer1_image";
   middle_answer1.appendChild(middle_answer1_image);
 
@@ -202,8 +267,8 @@ function addQuizHTML() {
   middle_answerBoxes.appendChild(middle_answer2);
 
   let middle_answer2_image = document.createElement("img");
-  middle_answer2_image.src = "dog.png";
-  middle_answer2_image.alt = "dog.png";
+  middle_answer2_image.src = "/images/dog.png";
+  middle_answer2_image.alt = "/images/dog.png";
   middle_answer2_image.className = "quizGame_middle_answer2_image";
   middle_answer2.appendChild(middle_answer2_image);
 
@@ -218,8 +283,8 @@ function addQuizHTML() {
   middle_answerBoxes.appendChild(middle_answer3);
 
   let middle_answer3_image = document.createElement("img");
-  middle_answer3_image.src = "dog.png";
-  middle_answer3_image.alt = "dog.png";
+  middle_answer3_image.src = "/images/dog.png";
+  middle_answer3_image.alt = "/images/dog.png";
   middle_answer3_image.className = "quizGame_middle_answer3_image";
   middle_answer3.appendChild(middle_answer3_image);
 
@@ -234,8 +299,8 @@ function addQuizHTML() {
   middle_answerBoxes.appendChild(middle_answer4);
 
   let middle_answer4_image = document.createElement("img");
-  middle_answer4_image.src = "/images/dog9.jpg";
-  middle_answer4_image.alt = "dog.png";
+  middle_answer4_image.src = "/images/dog.png";
+  middle_answer4_image.alt = "/images/dog.png";
   middle_answer4_image.className = "quizGame_middle_answer4_image";
   middle_answer4.appendChild(middle_answer4_image);
 

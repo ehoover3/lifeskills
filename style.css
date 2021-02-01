@@ -1,0 +1,279 @@
+/* TO DO:  Make the following into the default no color icons, then add color when hovered or clicked .main_bottom_quiz, .main_bottom_story, .main_bottom_profile, .main_bottom_league, .main_bottom_shop */
+/* TO DO:  Get the flex box of the animals to get the animals to pack in towards the start, instead of centering across the DIV */
+/* TO DO:  clean up the CSS file */
+
+/* NOTES:  DIV#IDNAME.CLASSNAME */
+
+.brandColors {
+  /* CORE BRAND COLORS */
+  color: #58cc02; /* FEATHER GREEN */
+  color: #89e219; /* MASK GREEN */
+  color: #777777; /* WOLF */
+  color: #ffffff; /* WHITE */
+  /* SECONDARY BRAND COLORS */
+  color: #ff4b4b; /* CARDINAL */
+  color: #ffc800; /* BEE */
+  color: #ce82ff; /* BEETLE */
+  color: #ff9600; /* FOX */
+  color: #2b70c9; /* HUMPBACK */
+  color: #1cb0f6; /* MACAW */
+}
+:root {
+  /* group A */
+  --color_a1_polar: #f7f7f7;
+  --color_a2_swan: #e5e5e5;
+  --color_a3_hare: #afafaf;
+  --color_a4_wolf: #777777;
+  --color_a5_eel: #4b4b4b;
+  /* group B */
+  --color_b1_squid: #ebe3e3;
+  --color_b2_walkingFish: #ffdfe0;
+  --color_b3_flamingo: #ffb2b2;
+  --color_b4_pig: #f5a4a4;
+  --color_b5_crab: #ff7878;
+  --color_b6_cardinal: #ff4b4b;
+  --color_b7_fireAnt: #ea2b2b;
+  /* group C */
+  --color_c1_canary: #fff5d3;
+  --color_c2_duck: #fbe56d;
+  --color_c3_bee: #ffc800;
+  --color_c4_lion: #ffb100;
+  --color_c5_fox: #ff9600;
+  --color_c6_cheetah: #ffce8e;
+  --color_c7_monkey: #e5a259;
+  --color_c8_camel: #e7a601;
+  --color_c9_guineaPig: #cd7900;
+  --color_c10_grizzly: #a56644;
+  /* group c - misc color */
+  --color_c11_upperBeak: #ffcc00;
+  /* group D */
+  --color_d1_seaSponge: #d7ffb8;
+  --color_d2_turtle: #a5ed6e;
+  --color_d3_owl: #58cc02;
+  --color_d4_treeFrog: #58a700;
+  /* groud D - misc color */
+  --color_d5_featherGreen: #58cc02;
+  --color_d6_maskGreen: #89e219;
+
+  /* group E */
+  --color_e1_iguana: #ddf4ff;
+  --color_e2_anchovy: #d2e4e8;
+  --color_e3_beluga: #bbf2ff;
+  --color_e4_moonJelly: #7af0f2;
+  --color_e5_blueJay: #84d8ff;
+  --color_e6_macaw: #1cb0f6;
+  --color_e7_whale: #1899d6;
+  --color_e8_humpback: #2b70c9;
+  --color_e9_narwhal: #1453a3;
+  /* group F */
+  --color_f1_starfish: #ffaade;
+  --color_f2_beetle: #ce82ff;
+  --color_f3_betta: #9069cd;
+  --color_f4_butterfly: #6f4ea1;
+}
+
+body {
+  font-family: "Helvatica", Sans-Serif;
+  font-size: 5vh;
+  margin: 0vh;
+  padding: 0vh;
+}
+.main {
+  height: 100vh;
+  width: 100vw;
+}
+.m_top {
+  background-color: var(--color_a1_polar);
+  height: 15vh;
+  width: 100vw;
+  outline: var(--color_a3_hare) 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+.m_subject,
+.m_crown,
+.m_streak,
+.m_heart {
+  height: 15vh;
+  font-size: 12.5vh;
+}
+.m_middle {
+  background-color: var(--color_a1_polar);
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.m_row1,
+.m_row2,
+.m_row3 {
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+.m_circle1,
+.m_circle2,
+.m_circle3,
+.m_circle4,
+.m_circle5 {
+  background-color: var(--color_e5_blueJay);
+  height: 15vh;
+  width: 15vh;
+  border-radius: 50%; /* circle */
+}
+.m_bottom {
+  background-color: var(--color_a1_polar);
+  height: 15vh;
+  width: 100vw;
+  outline: var(--color_a3_hare) 1px solid;
+  display: flex;
+  justify-content: space-between;
+}
+.m_quiz,
+.m_story,
+.m_profile,
+.m_league,
+.m_shop {
+  font-size: 12.5vh;
+}
+
+/* */
+/* */
+/* */
+
+.quiz {
+  height: 100vh;
+  width: 100vw;
+  font-size: 5vh;
+}
+.q_top {
+  background-color: var(--color_a1_polar);
+  height: 15vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.q_exit {
+  background-color: var(--color_a1_polar);
+  height: 15vh;
+  width: 10vw;
+  text-align: right;
+}
+.q_exit:hover {
+  color: var(--color_a3_hare);
+}
+.q_myBar {
+  background-color: var(--color_d5_featherGreen);
+  border-radius: 25px; /* rounded corner */
+  height: 5vh;
+  width: 100%;
+}
+.q_myFullBar {
+  background-color: var(--color_a2_swan);
+  border-radius: 25px; /* rounded corner */
+  height: 5vh;
+  width: 50vw;
+}
+.q_heart {
+  background-color: var(--color_a1_polar);
+  height: 5vh;
+  width: 10vw;
+  text-align: left;
+}
+
+.q_middle {
+  background-color: var(--color_a1_polar);
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.q_question {
+  background-color: var(--color_a1_polar);
+  height: 5vh;
+  width: 100vw;
+  text-align: center;
+}
+.q_answerBox {
+  background-color: var(--color_a1_polar);
+  height: 55vh;
+  width: 55vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+.q_answer1,
+.q_answer2,
+.q_answer3,
+.q_answer4 {
+  background-color: var(--color_a1_polar);
+  height: 25vh;
+  width: 25vw;
+  outline: var(--color_a3_hare) 1px solid;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.q_answer1_image,
+.q_answer2_image,
+.q_answer3_image,
+.q_answer4_image {
+  background-color: var(--color_e6_macaw);
+  height: 20vh;
+  width: 20vw;
+  outline: var(--red) 1px solid;
+}
+.q_answer1_text,
+.q_answer2_text,
+.q_answer3_text,
+.q_answer4_text {
+  height: 5vh;
+  width: 25vw;
+  text-align: center;
+}
+
+.q_bottom {
+  background-color: var(--color_a1_polar);
+  height: 15vh;
+  width: 100vw;
+  outline: var(--color_a3_hare) 1px solid;
+  display: flex;
+  justify-content: center;
+}
+.q_skipButton {
+  height: 10vh;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px; /* rounded corner */
+  box-shadow: 0 0 3px 0 var(--color_a3_hare); /* outlines element */
+}
+.q_skipButton:hover {
+  background-color: var(--color_a2_swan);
+}
+.q_skipButton_text {
+  height: 5vh;
+  width: 15vw;
+  text-align: center;
+}
+.q_checkButton {
+  background-color: var(--color_a2_swan);
+  height: 10vh;
+  width: 25vw;
+  border-radius: 25px; /* rounded corner */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.q_checkButton_text {
+  background-color: var(--color_a2_swan);
+  height: 5vh;
+  width: 15vw;
+  text-align: center;
+}

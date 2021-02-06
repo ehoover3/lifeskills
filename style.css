@@ -162,9 +162,6 @@ body {
   width: 10vw;
   text-align: right;
 }
-.q_exit:hover {
-  color: var(--color_a3_hare);
-}
 .q_myBar {
   background-color: var(--color_d5_featherGreen);
   border-radius: 25px; /* rounded corner */
@@ -253,9 +250,6 @@ body {
   align-items: center;
   border-radius: 25px; /* rounded corner */
   box-shadow: 0 0 3px 0 var(--color_a3_hare); /* outlines element */
-}
-.q_skipButton:hover {
-  background-color: var(--color_a2_swan);
 }
 .q_skipButton_text {
   height: 5vh;

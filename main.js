@@ -1,67 +1,3 @@
-// What if I can spend gems on upgranding my home?
-// What if I can spend gems on upgrading my community?
-// i.e. playground, fitness park, walking trail, performance stage
-// i.e. pre-school, community garden
-
-// maybe I can buy clothes and give others clothes
-// an interactive marketplace like Runescape & learn finance, economics
-// what if I could group fund projects in-game
-// like I need x number of coins, but also community support
-
-// TO DO:  Debug why clicking Dog, Cat, Monkey in the dropdown works once, but not after that
-// TO DO:  Randomize where answer images
-// TO DO:  Add keypress event for clicking an answer & checking the answer
-// TO DO:  Outline the dropbox items that is selected & make it the top option in the dropbox
-
-// TO DO:  USE QUIZ INHERITANCE that EXTEND THE BASE QUIZ
-
-// Object UserInformation
-//  methods to push info to database... can update via JS
-//    streak
-//    points    functions that add point to browser.  functions that update the database.
-//    currency
-
-// TO DO:  Use classes and connect those with the functions
-// TO DO:  Use template literals, then intersperse variables within it
-// TO DO:  Eliminate the number of middle_circles... instead use flexbox and change the spacing... use row DIVs (CSS :first-child)
-
-// THINK:  What is the smallest possible concept I can fit on this class
-// THINK:  Figure out how to reuse classes on the various pages
-// THINK:  Think about inserting and removing things from the page, with classes using the event listeners for you
-// THINK:  Use internal processing to update the values
-// THINK:  Have very few global variables... instead use an instance variable and access them
-// THINK:  Have a main page controller... with the major variables... then the quiz updates that main page
-// THINK:  Main controller... on quiz complete... w/ info about completed quiz... that can go and get the scoreboard object for the page and do stuff with that.
-// THINK:  When a quiz is complete... it triggers the main controller listener.  So have an onquiz complete function.
-// THINK:  let the users interaction lead to when the event is called.
-
-// THINK:  What does the class need to know about... click events... html elements... reduce reuse of code... make code more legible
-// THINK:  more legible functions... verbThing format
-
-// CLASS
-// bind functions
-
-// OUTLINE
-// write down each class, instance variables, methods, and purposes for class, variable, and method
-
-// INSTANCE VARIABLES
-// think about what data you need to store and what format to store it in
-// gemCount
-// METHODS
-// pull data from the database
-// sync data with class database (give 5 sec window to handle asynchronous database i.e. rapid purchases)
-// update internal database, wait 5 seconds, then sync external database
-// but if another internal database thing occurs, reset waiting 5 seconds (for handling rapid purchasing)
-// DATABASES... load a new page... asks server about your account.
-// DATABASES... creating a data base for user information.
-
-// METHODS
-// exit button
-// clicking an answer box
-// clicking the skip button
-// clicking the check buttom > show feedback
-// finishing the quiz > show quiz results & update points, gems, etc.
-
 class UserDatabase {
   constructor(crownCount, streakCount, heartCount, gemCount, pointCount) {
     this.crownCount = 5;
@@ -71,137 +7,479 @@ class UserDatabase {
     this.pointCount = 10;
   }
 }
+let newUser = new UserDatabase(5, 6, 7, 10);
 
-class MainPage {
-  constructor() {
-    this.HTMLtemplateLiteral = `
-  <div class = "main">
-
-    <div class = "m_top">
-      <div class = "m_subject">&#128054;</div>
-      <div class = "m_crown">&#128081;${newUser.crownCount}</div>
-      <div class = "m_streak">&#128293;${newUser.streakCount}</div>
-      <div class = "m_heart">&#128420;${newUser.heartCount}</div>
+function mainPageHTML() {
+  markup = `
+  <div class="main">
+    <div class="m_top">
+      <div class="m_subject">&#128054;</div>
+      <div class="m_crown">&#128081;${newUser.crownCount}</div>
+      <div class="m_streak">&#128293;${newUser.streakCount}</div>
+      <div class="m_heart">&#128420;${newUser.heartCount}</div>
     </div>
  
-    <div class = "m_middle">
-      <div class = "m_row1">
-        <div class = "m_circle1">CLICK</div>
+    <div class="m_middle">
+      <div class="m_row1">
+        <div class="m_circle1" onclick="quizGameHTML()">CLICK</div>
       </div>
-      <div class = "m_row2">
-        <div class = "m_circle2"></div>
-        <div class = "m_circle3"></div>
+      <div class="m_row2">
+        <div class="m_circle2"></div>
+        <div class="m_circle3"></div>
       </div>
-      <div class = "m_row3">
-        <div class = "m_circle4"></div>
-        <div class = "m_circle5"></div>
+      <div class="m_row3">
+        <div class="m_circle4"></div>
+        <div class="m_circle5"></div>
       </div>
     </div>
-
-    <div class = "m_bottom">
-      <div class = "m_quiz">&#128218;</div>
-      <div class = "m_story">&#128506;</div>
-      <div class = "m_profile">&#127968;</div>
-      <div class = "m_league">&#127967;</div>
-      <div class = "m_shop">&#127974;</div>
+    <div class="m_bottom">
+      <div class="m_quiz">&#128218;</div>
+      <div class="m_story">&#128506;</div>
+      <div class="m_profile">&#127968;</div>
+      <div class="m_league">&#127967;</div>
+      <div class="m_shop">&#127974;</div>
     </div>
-
     </div>
   </div>`;
-  }
-  renderHTML() {
-    return (document.body.innerHTML = this.HTMLtemplateLiteral);
-  }
+  document.body.innerHTML = markup;
 }
+mainPageHTML();
 
-class QuizGame {
-  constructor(
-    widgetNode,
-    quizData,
-    progressBarPercent,
-    heartCount,
-    questionNumber,
-    circle1
-  ) {
-    this.quizData = 4;
-    this.questionNumber = 0;
-    this.progressBarPercent = 4;
-    this.heartCount = 5;
-    this.circle1 = document.querySelector(".m_circle1");
-    // TRYING TO ATTACH A LISTENER TO THE CLASS
-    this.widgetNode
-      .querySelector(".m_circle1")
-      .addEventListener("click", this.clickCircle1.bind(this));
-  }
-  // TRYING TO HAVE A CLICK EVENT FUNCTION RUN WHEN LISTENER IS CLICKED
-  clickCircle1() {
-    renderQuiz();
-  }
-}
-
-// RENDER PAGE
-let newUser = new UserDatabase(5, 6, 7, 10);
-let mainPage = new MainPage();
-mainPage.renderHTML();
-
-function renderQuiz() {
+function quizGameHTML() {
   markup = `
-
-<div class = "quiz">
-
+<div class="quiz">
   <div class="q_top">
-    <div class = "q_exit">X</div>
-    <div class = "q_myFullBar">
-      <div class = "q_myBar"></div>
+    <div class="q_exit" onmouseenter="onMouseEnter_exit()" onmouseleave="onMouseLeave_exit()" onclick="mainPageHTML()">X</div>
+    <div class="q_myFullBar">
+      <div class="q_myBar"></div>
     </div>
     <div class="q_heart">&#128420;5</div>
   </div>
-
   <div class="q_middle">
-    <div class= "q_question">QUESTION 1</div>
-    <div class = "q_answerBox">
-
-      <div class = "q_answer1">
-        <img class = "q_answer1_image" src = "/images/dog.png" alt = "/images/dog.png"></img>
-        <div class = "q_answer1_text">ANSWER 1</div>
+    <div class="q_question">QUESTION 1</div>
+    <div class="q_answerBox">
+      <div class="q_answer1" onmouseenter="onMouseEnter_answer(event)" onmouseleave="onMouseLeave_answer(event)" onclick="onClick_answer(event)">
+        <img class="q_answer1_image" src="/images/dog.png" alt="/images/dog.png"></img>
+        <div class="q_answer1_text">ANSWER 1</div>
       </div>
-
-      <div class = "q_answer2">
-        <img class = "q_answer2_image" src = "/images/dog.png" alt = "/images/dog.png" ></img>
-        <div class = "q_answer2_text">ANSWER 2</div>
+      <div class="q_answer2" onmouseenter="onMouseEnter_answer(event)" onmouseleave="onMouseLeave_answer(event)" onclick="onClick_answer(event)">
+        <img class="q_answer2_image" src="/images/dog.png" alt="/images/dog.png"></img>
+        <div class="q_answer2_text">ANSWER 2</div>
       </div>
-
-      <div class = "q_answer3">
-        <img class = "q_answer3_image" src = "/images/dog.png" alt = "/images/dog.png"></img>
-        <div class = "q_answer3_text">ANSWER 3</div>
+      <div class="q_answer3" onmouseenter="onMouseEnter_answer(event)" onmouseleave="onMouseLeave_answer(event)" onclick="onClick_answer(event)">
+        <img class="q_answer3_image" src="/images/dog.png" alt="/images/dog.png"></img>
+        <div class="q_answer3_text">ANSWER 3</div>
       </div>
-
-      <div class = "q_answer4">
-        <img class = "q_answer4_image" src = "/images/dog.png" alt = "/images/dog.png" ></img>
-        <div class = "q_answer4_text">ANSWER 4</div>
+      <div class="q_answer4" onmouseenter="onMouseEnter_answer(event)" onmouseleave="onMouseLeave_answer(event)" onclick="onClick_answer(event)">
+        <img class="q_answer4_image" src="/images/dog.png" alt="/images/dog.png"></img>
+        <div class="q_answer4_text">ANSWER 4</div>
       </div>
     </div>
   </div>
-
-  <div class = "q_bottom">
-      <div class = "q_skipButton">
-        <div class = "q_skipButton_text">SKIP</div>
+  <div class="q_bottom">
+      <div class="q_skipButton" onmouseenter="onMouseEnter_skipButton()" onmouseleave="onMouseLeave_skipButton()" onclick="onClick_skipButton()">
+        <div class="q_skipButton_text">SKIP</div>
       </div>
-      <div class = "q_checkButton">
-        <div class = "q_checkButton_text">CHECK</div>
+      <div class="q_checkButton" onmouseenter="onMouseEnter_checkButton()" onmouseleave="onMouseLeave_checkButton()" onclick="onClick_checkButton()">
+        <div class="q_checkButton_text">CHECK</div>
       </div>
   </div>
-
 </div>
 `;
   document.body.innerHTML = markup;
+  document.querySelector(".q_myBar").style.width = progressBarWidth + "%"; // progress bar code
+  quizFunctions(questionNumber);
 }
 
-//circle1.addEventListener("click", clickCircle1);
-// let clickCircle1 = function (event) {};
+let isAnswerBoxClicked = false;
 
-// CLICK LISTENERS
-// function m_listeners() {
-//   circle1.addEventListener("click", clickCircle1);
-// }
-// m_listeners();
+// *** onMouseEnter EVENTS ***
+function onMouseEnter_exit() {
+  document.querySelector(".q_exit").style.color = "rgb(229, 229, 229)";
+}
+
+function onMouseEnter_answer(event) {
+  let answer = event.currentTarget;
+  // rgb(88, 204, 2) === FEATHER GREEN
+  if (answer.style.backgroundColor !== "rgb(88, 204, 2)") {
+    //    document.querySelector(".q_answer1")
+    answer.style.backgroundColor = "#afafaf"; // HARE
+  }
+}
+
+function onMouseEnter_skipButton() {
+  document.querySelector(".q_skipButton").style.backgroundColor =
+    "rgb(229, 229, 229)";
+}
+
+function onMouseEnter_checkButton() {
+  if (
+    document.querySelector(".q_checkButton").style.backgroundColor ===
+    "rgb(88, 204, 2)" // FEATHER GREEN
+  ) {
+    document.querySelector(".q_checkButton").style.backgroundColor =
+      "rgb(137, 226, 25)"; // MASK GREEN
+    document.querySelector(".q_checkButton_text").style.backgroundColor =
+      "rgb(137, 226, 25)"; // MASK GREEN
+  }
+}
+
+// *** onMouseLeave Events ***
+function onMouseLeave_exit() {
+  document.querySelector(".q_exit").style.color = "rgb(0, 0, 0)";
+}
+
+function onMouseLeave_answer(event) {
+  let answer = event.currentTarget;
+  if (answer.style.backgroundColor === "rgb(175, 175, 175)") {
+    answer.style.backgroundColor = "rgb(247, 247, 247)";
+  }
+}
+
+function onMouseLeave_skipButton() {
+  document.querySelector(".q_skipButton").style.backgroundColor =
+    "rgb(247, 247, 247)";
+}
+
+function onMouseLeave_checkButton() {
+  if (
+    document.querySelector(".q_checkButton").style.backgroundColor ===
+    "rgb(137, 226, 25)" // MASK GREEN
+  ) {
+    document.querySelector(".q_checkButton").style.backgroundColor =
+      "rgb(88, 204, 2)"; // FEATHER GREEN
+    document.querySelector(".q_checkButton_text").style.backgroundColor =
+      "rgb(88, 204, 2)"; // FEATHER GREEN
+  }
+}
+
+// *** onClick Events ***
+function onClick_answer(event) {
+  let answer = event.currentTarget;
+  document.querySelector(".q_answer1").style.backgroundColor = "#f7f7f7"; // POLAR
+  document.querySelector(".q_answer2").style.backgroundColor = "#f7f7f7"; // POLAR
+  document.querySelector(".q_answer3").style.backgroundColor = "#f7f7f7"; // POLAR
+  document.querySelector(".q_answer4").style.backgroundColor = "#f7f7f7"; // POLAR
+  answer.style.backgroundColor = "#58cc02"; // FEATHER GREEN
+  document.querySelector(".q_checkButton").style.backgroundColor = "#58cc02"; // FEATHER GREEN
+  document.querySelector(".q_checkButton_text").style.backgroundColor =
+    "#58cc02"; // FEATHER GREEN
+  isAnswerBoxClicked = true;
+}
+
+function onClick_skipButton() {
+  alert("will add code here later");
+}
+
+function onClick_checkButton() {
+  if (isAnswerBoxClicked === true) {
+    // if answer is wrong
+
+    // else if answer is right
+
+    questionNumber += 1;
+    quizFunctions(questionNumber);
+    progressBar();
+    // reset answerboxes & checkbox to default for the next question
+    isAnswerBoxClicked = false;
+    document.querySelector(".q_answer1").style.backgroundColor = "#f7f7f7"; // POLAR
+    document.querySelector(".q_answer2").style.backgroundColor = "#f7f7f7"; // POLAR
+    document.querySelector(".q_answer3").style.backgroundColor = "#f7f7f7"; // POLAR
+    document.querySelector(".q_answer4").style.backgroundColor = "#f7f7f7"; // POLAR
+    document.querySelector(".q_checkButton").style.backgroundColor = "#e5e5e5"; // SWAN
+    document.querySelector(".q_checkButton_text").style.backgroundColor =
+      "#e5e5e5"; // SWAN // reset css for next question
+  }
+}
+
+// QUIZ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+let myQuestions = [
+  {
+    question: "Which dog is feeling relaxed?",
+    images: {
+      a: "/images/dog1.jpg",
+      b: "/images/dog2.jpg",
+      c: "/images/dog3.jpg",
+      d: "/images/dog4.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling relaxed?",
+    images: {
+      a: "/images/dog2.jpg",
+      b: "/images/dog2.jpg",
+      c: "/images/dog3.jpg",
+      d: "/images/dog4.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling submissive?",
+    images: {
+      a: "/images/dog3.jpg",
+      b: "/images/dog6.jpg",
+      c: "/images/dog7.jpg",
+      d: "/images/dog8.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling happy?",
+    images: {
+      a: "/images/dog4.jpg",
+      b: "/images/dog10.jpg",
+      c: "/images/dog11.jpg",
+      d: "/images/dog12.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling ready to play?",
+    images: {
+      a: "/images/dog5.jpg",
+      b: "/images/dog2.jpg",
+      c: "/images/dog3.jpg",
+      d: "/images/dog4.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling submissive?",
+    images: {
+      a: "/images/dog6.jpg",
+      b: "/images/dog6.jpg",
+      c: "/images/dog7.jpg",
+      d: "/images/dog8.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog wants to be left alone?",
+    images: {
+      a: "/images/dog7.jpg",
+      b: "/images/dog10.jpg",
+      c: "/images/dog11.jpg",
+      d: "/images/dog12.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling anxious and stressed?",
+    images: {
+      a: "/images/dog8.jpg",
+      b: "/images/dog2.jpg",
+      c: "/images/dog3.jpg",
+      d: "/images/dog4.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling terrified?",
+    images: {
+      a: "/images/dog9.jpg",
+      b: "/images/dog6.jpg",
+      c: "/images/dog7.jpg",
+      d: "/images/dog8.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling scared and ready to fight?",
+    images: {
+      a: "/images/dog10.jpg",
+      b: "/images/dog10.jpg",
+      c: "/images/dog11.jpg",
+      d: "/images/dog12.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling alert?",
+    images: {
+      a: "/images/dog11.jpg",
+      b: "/images/dog2.jpg",
+      c: "/images/dog3.jpg",
+      d: "/images/dog4.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling suspicious?",
+    images: {
+      a: "/images/dog12.jpg",
+      b: "/images/dog6.jpg",
+      c: "/images/dog7.jpg",
+      d: "/images/dog8.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "b",
+  },
+  {
+    question: "Which dog is stalking?",
+    images: {
+      a: "/images/dog13.jpg",
+      b: "/images/dog10.jpg",
+      c: "/images/dog11.jpg",
+      d: "/images/dog12.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling defensive and territorial?",
+    images: {
+      a: "/images/dog14.jpg",
+      b: "/images/dog2.jpg",
+      c: "/images/dog3.jpg",
+      d: "/images/dog4.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+  {
+    question: "Which dog is feeling angry and ready to fight?",
+    images: {
+      a: "/images/dog15.jpg",
+      b: "/images/dog6.jpg",
+      c: "/images/dog7.jpg",
+      d: "/images/dog8.jpg",
+    },
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3",
+      d: "4",
+    },
+    correctAnswer: "a",
+  },
+];
+
+function quizFunctions(questionNumber) {
+  // guard clause
+  if (questionNumber + 1 < myQuestions.length) {
+    // update screen with the next question
+    document.querySelector(".q_question").innerHTML =
+      myQuestions[questionNumber].question;
+    document.querySelector(".q_answer1_image").src =
+      myQuestions[questionNumber].images.a;
+    document.querySelector(".q_answer2_image").src =
+      myQuestions[questionNumber].images.b;
+    document.querySelector(".q_answer3_image").src =
+      myQuestions[questionNumber].images.c;
+    document.querySelector(".q_answer4_image").src =
+      myQuestions[questionNumber].images.d;
+
+    document.querySelector(".q_answer1_text").innerHTML =
+      myQuestions[questionNumber].answers.a;
+    document.querySelector(".q_answer2_text").innerHTML =
+      myQuestions[questionNumber].answers.b;
+    document.querySelector(".q_answer3_text").innerHTML =
+      myQuestions[questionNumber].answers.c;
+    document.querySelector(".q_answer4_text").innerHTML =
+      myQuestions[questionNumber].answers.d;
+  }
+}
+let questionNumber = 0;
+let progressBarWidth = 0;
+function progressBar() {
+  let setIntervalFX = setInterval(updateProgressBar, 10); //setInterval(function, milliseconds) // Runs the frame function every 10 milliseconds
+  function updateProgressBar() {
+    if (progressBarWidth >= 100) {
+      // Step 3: If progress bar is full, stay at 100% and don't go beyond that
+      return;
+    } else if (
+      progressBarWidth >=
+      100 / (myQuestions.length / (questionNumber + 0))
+    ) {
+      // Step 2: Progress bar stops expanding when it reaches a certain point
+      console.log(questionNumber);
+      clearInterval(setIntervalFX); // Stop running the setInterval function
+    } else {
+      progressBarWidth++; // Step 1: Progress bar expands
+      document.querySelector(".q_myBar").style.width = progressBarWidth + "%";
+    }
+  }
+}

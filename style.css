@@ -242,7 +242,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.q_skipButton {
+.q_hintButton {
   height: 10vh;
   width: 25vw;
   display: flex;
@@ -251,7 +251,7 @@ body {
   border-radius: 25px; /* rounded corner */
   box-shadow: 0 0 3px 0 var(--color_a3_hare); /* outlines element */
 }
-.q_skipButton_text {
+.q_hintButton_text {
   height: 5vh;
   width: 15vw;
   text-align: center;
@@ -264,10 +264,33 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 .q_checkButton_text {
   background-color: var(--color_a2_swan);
   height: 5vh;
   width: 15vw;
   text-align: center;
+}
+.q_feedbackBox {
+  height: 21vh;
+  width: 100vw;
+  background-color: var(--color_a2_swan);
+  outline: var(--color_a3_hare) 1px solid;
+  position: relative;
+  top: -21vh;
+  z-index: 1;
+  display: none;
+  justify-content: space-between;
+}
+.q_feedbackBox_text {
+  display: flex;
+  flex-direction: column;
+}
+.q_feedbackBox_text1 {
+  color: var(--color_d5_featherGreen);
+  font-weight: bold;
+}
+.q_feedbackBox_text2 {
+  color: var(--color_d5_featherGreen);
 }

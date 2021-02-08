@@ -109,10 +109,10 @@ function onMouseEnter_answer(event) {
   // guard clause - don't run if feedbackBox is shown
   if (isFeedbackBoxHidden === true) {
     let answer = event.currentTarget;
-    // rgb(88, 204, 2) === FEATHER GREEN
+    // rgb(88, 204, 2) === color FEATHER GREEN
     if (answer.style.backgroundColor !== "rgb(88, 204, 2)") {
       //    document.querySelector(".q_answer1")
-      answer.style.backgroundColor = "#afafaf"; // HARE
+      answer.style.backgroundColor = "#afafaf"; // color HARE
     }
   }
 }
@@ -154,40 +154,40 @@ function onMouseLeave_hintButton() {
 function onMouseLeave_checkButton() {
   if (
     document.querySelector(".q_checkButton").style.backgroundColor ===
-    "rgb(137, 226, 25)" // MASK GREEN
+    "rgb(137, 226, 25)" // color MASK GREEN
   ) {
     document.querySelector(".q_checkButton").style.backgroundColor =
-      "rgb(88, 204, 2)"; // FEATHER GREEN
+      "rgb(88, 204, 2)"; // color FEATHER GREEN
     document.querySelector(".q_checkButton_text").style.backgroundColor =
-      "rgb(88, 204, 2)"; // FEATHER GREEN
+      "rgb(88, 204, 2)"; // color FEATHER GREEN
   }
 }
 
 // *** onClick Events ***
 function onClick_exit() {
-  // reset variables
+  // Step 1: Reset variables
   isAnswerBoxClicked = false;
   answer = "";
   isFeedbackBoxHidden = true;
   questionNumber = 0;
   progressBarWidth = 0;
 
-  // load main page
+  // Step 2: Load main page
   mainPageHTML();
 }
 
-function onClick_answer(event) {
+function onClick_answerBox(event) {
   if (isFeedbackBoxHidden === true) {
     let selectedAnswerBox = event.currentTarget;
-    document.querySelector(".q_answer1").style.backgroundColor = "#f7f7f7"; // POLAR
-    document.querySelector(".q_answer2").style.backgroundColor = "#f7f7f7"; // POLAR
-    document.querySelector(".q_answer3").style.backgroundColor = "#f7f7f7"; // POLAR
-    document.querySelector(".q_answer4").style.backgroundColor = "#f7f7f7"; // POLAR
-    selectedAnswerBox.style.backgroundColor = "#58cc02"; // FEATHER GREEN
+    document.querySelector(".q_answer1").style.backgroundColor = "#f7f7f7"; // color POLAR
+    document.querySelector(".q_answer2").style.backgroundColor = "#f7f7f7"; // color POLAR
+    document.querySelector(".q_answer3").style.backgroundColor = "#f7f7f7"; // color POLAR
+    document.querySelector(".q_answer4").style.backgroundColor = "#f7f7f7"; // color POLAR
+    selectedAnswerBox.style.backgroundColor = "#58cc02"; // color FEATHER GREEN
     answer = selectedAnswerBox.innerText;
-    document.querySelector(".q_checkButton").style.backgroundColor = "#58cc02"; // FEATHER GREEN
+    document.querySelector(".q_checkButton").style.backgroundColor = "#58cc02"; // color FEATHER GREEN
     document.querySelector(".q_checkButton_text").style.backgroundColor =
-      "#58cc02"; // FEATHER GREEN
+      "#58cc02"; // color FEATHER GREEN
     isAnswerBoxClicked = true;
   }
 }
@@ -197,15 +197,14 @@ function onClick_hintButton() {
 }
 
 function onClick_checkButton() {
+  // Step 0: Run feedback box code first, then run code to reset to next question
   if (isAnswerBoxClicked === true && isFeedbackBoxHidden === true) {
-    // show feedback box
+    // Step 1: Show feedback box
     document.querySelector(".q_feedbackBox").style.display = "flex";
     isFeedbackBoxHidden = false;
 
-    // disable onMouseEnter, onMouseLeave, and some onClick events
-
-    // show feedback's correct answer response
     if (answer === myQuestions[questionNumber].correctAnswer) {
+      // Step 2a: Show feedback's correct answer response
       document.querySelector(".q_feedbackBox_text1").style.color =
         "rgb(88,204,2)"; // color feather green
       document.querySelector(".q_feedbackBox_text2").style.color =
@@ -213,12 +212,11 @@ function onClick_checkButton() {
       document.querySelector(".q_feedbackBox_text1").innerHTML = "Good job!";
       document.querySelector(".q_feedbackBox_text2").innerHTML = "";
     } else {
+      // Step 2b: Show feedback's wrong answer response
       document.querySelector(".q_feedbackBox_text1").style.color =
         "rgb(234,43,43)"; // color fireant
       document.querySelector(".q_feedbackBox_text2").style.color =
         "rgb(234,43,43)"; // color fireant
-
-      // show feedback's wrong answer response
       document.querySelector(
         ".q_feedbackBox_text1"
       ).innerHTML = `Correct Answer:`;
@@ -226,23 +224,23 @@ function onClick_checkButton() {
         ".q_feedbackBox_text2"
       ).innerHTML = `${myQuestions[questionNumber].correctAnswer}`;
     }
-
+    // Step 2c: Change checkButton text
     document.querySelector(".q_checkButton_text").innerHTML = "CONTINUE";
   } else if (isAnswerBoxClicked === true && isFeedbackBoxHidden === false) {
-    // load the next question
+    // Step 3a: Load next question
     questionNumber += 1;
     updateQuizProgressBar();
     updateQuizScreen(questionNumber);
     document.querySelector(".q_checkButton_text").innerHTML = "CHECK";
 
-    // reset answerboxes & checkbox to default for the next question
-    document.querySelector(".q_answer1").style.backgroundColor = "#f7f7f7"; // POLAR
-    document.querySelector(".q_answer2").style.backgroundColor = "#f7f7f7"; // POLAR
-    document.querySelector(".q_answer3").style.backgroundColor = "#f7f7f7"; // POLAR
-    document.querySelector(".q_answer4").style.backgroundColor = "#f7f7f7"; // POLAR
-    document.querySelector(".q_checkButton").style.backgroundColor = "#e5e5e5"; // SWAN
+    // Step 3b: Reset answerboxes, isAnswerBoxClicked, & isFeedbackBox to default for the next question
+    document.querySelector(".q_answer1").style.backgroundColor = "#f7f7f7"; // color POLAR
+    document.querySelector(".q_answer2").style.backgroundColor = "#f7f7f7"; // color POLAR
+    document.querySelector(".q_answer3").style.backgroundColor = "#f7f7f7"; // color POLAR
+    document.querySelector(".q_answer4").style.backgroundColor = "#f7f7f7"; // color POLAR
+    document.querySelector(".q_checkButton").style.backgroundColor = "#e5e5e5"; // color SWAN
     document.querySelector(".q_checkButton_text").style.backgroundColor =
-      "#e5e5e5"; // SWAN
+      "#e5e5e5"; // color SWAN
     isAnswerBoxClicked = false;
     document.querySelector(".q_feedbackBox").style.display = "none";
     isFeedbackBoxHidden = true;
@@ -251,12 +249,11 @@ function onClick_checkButton() {
 
 let isAnswerBoxClicked = false;
 let answer = "";
-
-// QUIZ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 let isFeedbackBoxHidden = true;
 let questionNumber = 0;
 let progressBarWidth = 0;
+
+// QUIZ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 function updateQuizProgressBar() {
   let setIntervalFX = setInterval(updateProgressBar, 10); //setInterval(function, milliseconds) // Runs the frame function every 10 milliseconds

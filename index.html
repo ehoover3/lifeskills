@@ -14,7 +14,20 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
 
-  <body></body>
-
-  <script src="./main.js"></script>
+  <body>
+    <div id="root"></div>
+    <!-- include React and ReactDOM -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <!-- include Babel standalone to process JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- include JS for the React Application -->
+    <script type="text/babel" src="./main.js"></script>
+  </body>
 </html>

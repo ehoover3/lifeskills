@@ -1,315 +1,220 @@
-// TO DO: I'm not sure if the variable "isFeedbackBoxHidden" is properly named for easy understanding.  Maybe rename it.
+// Color Variables
+const swan = "#e5e5e5"; //color code: a2
+const hare = "#afafaf"; //color code: a3
+const wolf = "#777777"; //color code: a4
+const eel = "#4b4b4b"; //color code: a5
+const featherGreen = "#58cc02"; // color code: d5
 
-class UserDatabase {
-  constructor(crownCount, streakCount, heartCount, gemCount, pointCount) {
-    this.crownCount = 5;
-    this.streakCount = 6;
-    this.heartCount = 5;
-    this.gemCount = 7;
-    this.pointCount = 10;
-  }
-}
-let newUser = new UserDatabase(5, 6, 7, 10);
+// Audio Variables
+// (ADD SOUND HERE)
 
-function mainPageHTML() {
-  markup = `
-  <div class="main">
-    <div class="m_top">
-      <div class="m_subject">&#128054;</div>
-      <div class="m_crown">&#128081;${newUser.crownCount}</div>
-      <div class="m_streak">&#128293;${newUser.streakCount}</div>
-      <div class="m_heart">&#128420;${newUser.heartCount}</div>
-    </div>
- 
-    <div class="m_middle">
-      <div class="m_row1">
-        <div class="m_circle1" onclick="quizGameHTML()">CLICK</div>
-      </div>
-      <div class="m_row2">
-        <div class="m_circle2"></div>
-        <div class="m_circle3"></div>
-      </div>
-      <div class="m_row3">
-        <div class="m_circle4"></div>
-        <div class="m_circle5"></div>
-      </div>
-    </div>
-    <div class="m_bottom">
-      <div class="m_quiz">&#128218;</div>
-      <div class="m_story">&#128506;</div>
-      <div class="m_profile">&#127968;</div>
-      <div class="m_league">&#127967;</div>
-      <div class="m_shop">&#127974;</div>
-    </div>
-    </div>
-  </div>`;
-  document.body.innerHTML = markup;
-}
-mainPageHTML();
+// State Variables
+const { useState, useEffect } = React;
 
-function quizGameHTML() {
-  markup = `
-<div class="quiz">
-  <div class="q_top">
-    <div class="q_exit" onmouseenter="onMouseEnter_exit()" onmouseleave="onMouseLeave_exit()" onclick="onClick_exit()">X</div>
-    <div class="q_myFullBar">
-      <div class="q_myBar"></div>
-    </div>
-    <div class="q_heart">&#128420;5</div>
-  </div>
-  <div class="q_middle">
-    <div class="q_question">QUESTION 1</div>
-    <div class="q_answerBox">
-      <div class="q_answer1" onmouseenter="onMouseEnter_answer(event)" onmouseleave="onMouseLeave_answer(event)" onclick="onClick_answer(event)">
-        <img class="q_answer1_image" src="/images/dog.png" alt="/images/dog.png"></img>
-        <div class="q_answer1_text">ANSWER 1</div>
-      </div>
-      <div class="q_answer2" onmouseenter="onMouseEnter_answer(event)" onmouseleave="onMouseLeave_answer(event)" onclick="onClick_answer(event)">
-        <img class="q_answer2_image" src="/images/dog.png" alt="/images/dog.png"></img>
-        <div class="q_answer2_text">ANSWER 2</div>
-      </div>
-      <div class="q_answer3" onmouseenter="onMouseEnter_answer(event)" onmouseleave="onMouseLeave_answer(event)" onclick="onClick_answer(event)">
-        <img class="q_answer3_image" src="/images/dog.png" alt="/images/dog.png"></img>
-        <div class="q_answer3_text">ANSWER 3</div>
-      </div>
-      <div class="q_answer4" onmouseenter="onMouseEnter_answer(event)" onmouseleave="onMouseLeave_answer(event)" onclick="onClick_answer(event)">
-        <img class="q_answer4_image" src="/images/dog.png" alt="/images/dog.png"></img>
-        <div class="q_answer4_text">ANSWER 4</div>
-      </div>
-    </div>
-  </div>
-  <div class="q_bottom">
-      <div class="q_hintButton" onmouseenter="onMouseEnter_hintButton()" onmouseleave="onMouseLeave_hintButton()" onclick="onClick_hintButton()">
-        <div class="q_hintButton_text">HINT</div>
-      </div>
-      <div class="q_checkButton" onmouseenter="onMouseEnter_checkButton()" onmouseleave="onMouseLeave_checkButton()" onclick="onClick_checkButton()">
-        <div class="q_checkButton_text">CHECK</div>
-      </div>
-  </div>
-  <div class="q_feedbackBox">
-    <div class="q_feedbackBox_text">
-      <div class="q_feedbackBox_text1"></div>
-      <div class="q_feedbackBox_text2"></div>
-    </div>
-    <div class="q_feedbackBox_emoji">&#127987</div>
-  </div>
-</div>
-`;
-  document.body.innerHTML = markup;
-  document.querySelector(".q_myBar").style.width = progressBarWidth + "%"; // progress bar code
-  updateQuizScreen(questionNumber);
+//explore useRef hook   how to save info from the dom using useRef
+
+// HANDLE OVERLAY
+function openNav() {
+  document.querySelector(".overlay").style.height = "21%";
+  console.log("testnav1");
 }
 
-// *** onMouseEnter EVENTS ***
-function onMouseEnter_exit() {
-  document.querySelector(".q_exit").style.color = "rgb(229, 229, 229)";
+function closeNav() {
+  document.querySelector(".overlay").style.height = "0%";
+  console.log("testnav2");
 }
 
-function onMouseEnter_answer(event) {
-  // guard clause - don't run if feedbackBox is shown
-  if (isFeedbackBoxHidden === true) {
-    let answer = event.currentTarget;
-    // rgb(88, 204, 2) === color FEATHER GREEN
-    if (answer.style.backgroundColor !== "rgb(88, 204, 2)") {
-      //    document.querySelector(".q_answer1")
-      answer.style.backgroundColor = "#afafaf"; // color HARE
+const App = (props) => {
+  let [i, seti] = useState(1); // starts at 0, then
+
+  //MOUNT COMPONENT
+  useEffect(() => {
+    document.querySelector(".question").innerHTML = info[0].question;
+    document.querySelector(".answer1_image").src = info[0].images.b;
+    document.querySelector(".answer2_image").src = info[0].images.b;
+    document.querySelector(".answer3_image").src = info[0].images.c;
+    document.querySelector(".answer4_image").src = info[0].images.d;
+    document.querySelector(".answer1_text").innerHTML = info[0].answer.a;
+    document.querySelector(".answer2_text").innerHTML = info[0].answer.b;
+    document.querySelector(".answer3_text").innerHTML = info[0].answer.c;
+    document.querySelector(".answer4_text").innerHTML = info[0].answer.d;
+  }, []);
+
+  // HANDLE KEYPRESS
+  useEffect(() => {
+    2;
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      // Progress to the next question slide (part 2 of 2)
+      document.querySelector(".question").innerHTML = info[i].question;
+
+      // this could be a template literal... potentially...
+      document.querySelector(".answer1_image").src = info[i].images.a;
+      document.querySelector(".answer2_image").src = info[i].images.b;
+      document.querySelector(".answer3_image").src = info[i].images.c;
+      document.querySelector(".answer4_image").src = info[i].images.d;
+
+      document.querySelector(".answer1_text").innerHTML = info[i].answer.a;
+      document.querySelector(".answer2_text").innerHTML = info[i].answer.b;
+      document.querySelector(".answer3_text").innerHTML = info[i].answer.c;
+      document.querySelector(".answer4_text").innerHTML = info[i].answer.d;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [i]);
+
+  // KEY HANDLER
+  const handleKeyDown = (e) => {
+    if (e.key === "1") {
+      if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
+        document.querySelector(".answer1").style.backgroundColor = featherGreen;
+        document.querySelector(".answer2").style.backgroundColor = eel;
+        document.querySelector(".answer3").style.backgroundColor = eel;
+        document.querySelector(".answer4").style.backgroundColor = eel;
+        document.querySelector(
+          ".checkBtn"
+        ).style.backgroundColor = featherGreen;
+        document.querySelector(".checkBtn").style.color = swan;
+      }
+    } else if (e.key === "2") {
+      if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
+        document.querySelector(".answer1").style.backgroundColor = eel;
+        document.querySelector(".answer2").style.backgroundColor = featherGreen;
+        document.querySelector(".answer3").style.backgroundColor = eel;
+        document.querySelector(".answer4").style.backgroundColor = eel;
+        document.querySelector(
+          ".checkBtn"
+        ).style.backgroundColor = featherGreen;
+        document.querySelector(".checkBtn").style.color = swan;
+      }
+    } else if (e.key === "3") {
+      if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
+        document.querySelector(".answer1").style.backgroundColor = eel;
+        document.querySelector(".answer2").style.backgroundColor = eel;
+        document.querySelector(".answer3").style.backgroundColor = featherGreen;
+        document.querySelector(".answer4").style.backgroundColor = eel;
+        document.querySelector(
+          ".checkBtn"
+        ).style.backgroundColor = featherGreen;
+        document.querySelector(".checkBtn").style.color = swan;
+      }
+    } else if (e.key === "4") {
+      if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
+        document.querySelector(".answer1").style.backgroundColor = eel;
+        document.querySelector(".answer2").style.backgroundColor = eel;
+        document.querySelector(".answer3").style.backgroundColor = eel;
+        document.querySelector(".answer4").style.backgroundColor = featherGreen;
+        document.querySelector(
+          ".checkBtn"
+        ).style.backgroundColor = featherGreen;
+        document.querySelector(".checkBtn").style.color = swan;
+      }
+    } else if (e.key === "Enter") {
+      // // GUARD CLAUSE: Has an answer been selected?  //NOTE: rgb(88, 204, 2) === featherGreen
+      if (
+        document.querySelector(".answer1").style.backgroundColor ===
+          "rgb(88, 204, 2)" ||
+        document.querySelector(".answer2").style.backgroundColor ===
+          "rgb(88, 204, 2)" ||
+        document.querySelector(".answer3").style.backgroundColor ===
+          "rgb(88, 204, 2)" ||
+        document.querySelector(".answer4").style.backgroundColor ===
+          "rgb(88, 204, 2)"
+      ) {
+        // PRESSED ENTER && Info array HAS NOT reached last slide
+        if (i !== info.length) {
+          if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
+            openNav();
+            document.querySelector(".checkBtn").innerHTML = "CONTINUE";
+          } else if (
+            document.querySelector(".checkBtn").innerHTML === "CONTINUE"
+          ) {
+            // Reset answer box colors & checkbtn text
+            console.log("test");
+            document.querySelector(".answer1").style.backgroundColor = eel;
+            document.querySelector(".answer2").style.backgroundColor = eel;
+            document.querySelector(".answer3").style.backgroundColor = eel;
+            document.querySelector(".answer4").style.backgroundColor = eel;
+            document.querySelector(".checkBtn").style.backgroundColor = eel;
+            document.querySelector(".checkBtn").style.backgroundColor = hare;
+            document.querySelector(".checkBtn").style.color = wolf;
+            document.querySelector(".checkBtn").innerHTML = "CHECK";
+
+            // Progress to next question slide (part 1 of 2)
+            seti(i + 1);
+            closeNav();
+          }
+        }
+        // PRESSED ENTER && Info array HAS reached last slide
+        else if (i === info.length) {
+          console.log("QUIZ COMPLETE SLIDE HERE");
+        }
+      }
     }
-  }
-}
+  };
 
-function onMouseEnter_hintButton() {
-  document.querySelector(".q_hintButton").style.backgroundColor =
-    "rgb(229, 229, 229)";
-}
+  return (
+    <React.Fragment>
+      <div className="quiz">
+        {/* top1 */}
+        <div className="top1">
+          <div className="exit">&times;</div>
+          <div className="progressBarBox">
+            <div className="progressBar">PROGRESS</div>
+          </div>
+          <div className="heart">HEART</div>
+        </div>
 
-function onMouseEnter_checkButton() {
-  if (
-    document.querySelector(".q_checkButton").style.backgroundColor ===
-    "rgb(88, 204, 2)" // FEATHER GREEN
-  ) {
-    document.querySelector(".q_checkButton").style.backgroundColor =
-      "rgb(137, 226, 25)"; // MASK GREEN
-    document.querySelector(".q_checkButton_text").style.backgroundColor =
-      "rgb(137, 226, 25)"; // MASK GREEN
-  }
-}
+        {/* top2 */}
+        <div className="top2">
+          <div className="achievement">NEW WORD</div>
+          <div className="question">WHICH IS HAPPINESS?</div>
+        </div>
 
-// *** onMouseLeave Events ***
-function onMouseLeave_exit() {
-  document.querySelector(".q_exit").style.color = "rgb(0, 0, 0)";
-}
+        {/* middle */}
+        <div className="middle">
+          <div className="answer1">
+            <img className="answer1_image" />
+            <div className="answer1_text">test</div>
+          </div>
 
-function onMouseLeave_answer(event) {
-  let answer = event.currentTarget;
-  if (answer.style.backgroundColor === "rgb(175, 175, 175)") {
-    answer.style.backgroundColor = "rgb(247, 247, 247)";
-  }
-}
+          <div className="answer2">
+            <img className="answer2_image" />
+            <div className="answer2_text">test</div>
+          </div>
+          <div className="answer3">
+            <img className="answer3_image" />
+            <div className="answer3_text">test</div>
+          </div>
+          <div className="answer4">
+            <img className="answer4_image" />
+            <div className="answer4_text">test</div>
+          </div>
+        </div>
 
-function onMouseLeave_hintButton() {
-  document.querySelector(".q_hintButton").style.backgroundColor =
-    "rgb(247, 247, 247)";
-}
+        {/* bottom */}
+        <div className="bottom">
+          <div className="checkBtn">CHECK</div>
+        </div>
+      </div>
 
-function onMouseLeave_checkButton() {
-  if (
-    document.querySelector(".q_checkButton").style.backgroundColor ===
-    "rgb(137, 226, 25)" // color MASK GREEN
-  ) {
-    document.querySelector(".q_checkButton").style.backgroundColor =
-      "rgb(88, 204, 2)"; // color FEATHER GREEN
-    document.querySelector(".q_checkButton_text").style.backgroundColor =
-      "rgb(88, 204, 2)"; // color FEATHER GREEN
-  }
-}
+      {/* overlay */}
+      <div className="overlay"></div>
+    </React.Fragment>
+  );
+};
 
-// *** onClick Events ***
-function onClick_exit() {
-  // Step 1: Reset variables
-  isAnswerBoxClicked = false;
-  answer = "";
-  isFeedbackBoxHidden = true;
-  questionNumber = 0;
-  progressBarWidth = 0;
+ReactDOM.render(<App />, document.getElementById("root"));
 
-  // Step 2: Load main page
-  mainPageHTML();
-}
-
-function onClick_answerBox(event) {
-  if (isFeedbackBoxHidden === true) {
-    let selectedAnswerBox = event.currentTarget;
-    document.querySelector(".q_answer1").style.backgroundColor = "#f7f7f7"; // color POLAR
-    document.querySelector(".q_answer2").style.backgroundColor = "#f7f7f7"; // color POLAR
-    document.querySelector(".q_answer3").style.backgroundColor = "#f7f7f7"; // color POLAR
-    document.querySelector(".q_answer4").style.backgroundColor = "#f7f7f7"; // color POLAR
-    selectedAnswerBox.style.backgroundColor = "#58cc02"; // color FEATHER GREEN
-    answer = selectedAnswerBox.innerText;
-    document.querySelector(".q_checkButton").style.backgroundColor = "#58cc02"; // color FEATHER GREEN
-    document.querySelector(".q_checkButton_text").style.backgroundColor =
-      "#58cc02"; // color FEATHER GREEN
-    isAnswerBoxClicked = true;
-  }
-}
-
-function onClick_hintButton() {
-  alert("will add code here later");
-}
-
-function onClick_checkButton() {
-  // Step 0: Run feedback box code first, then run code to reset to next question
-  if (isAnswerBoxClicked === true && isFeedbackBoxHidden === true) {
-    // Step 1: Show feedback box
-    document.querySelector(".q_feedbackBox").style.display = "flex";
-    isFeedbackBoxHidden = false;
-
-    if (answer === myQuestions[questionNumber].correctAnswer) {
-      // Step 2a: Show feedback's correct answer response
-      document.querySelector(".q_feedbackBox_text1").style.color =
-        "rgb(88,204,2)"; // color feather green
-      document.querySelector(".q_feedbackBox_text2").style.color =
-        "rgb(88,204,2)"; // color feather green
-      document.querySelector(".q_feedbackBox_text1").innerHTML = "Good job!";
-      document.querySelector(".q_feedbackBox_text2").innerHTML = "";
-    } else {
-      // Step 2b: Show feedback's wrong answer response
-      document.querySelector(".q_feedbackBox_text1").style.color =
-        "rgb(234,43,43)"; // color fireant
-      document.querySelector(".q_feedbackBox_text2").style.color =
-        "rgb(234,43,43)"; // color fireant
-      document.querySelector(
-        ".q_feedbackBox_text1"
-      ).innerHTML = `Correct Answer:`;
-      document.querySelector(
-        ".q_feedbackBox_text2"
-      ).innerHTML = `${myQuestions[questionNumber].correctAnswer}`;
-    }
-    // Step 2c: Change checkButton text
-    document.querySelector(".q_checkButton_text").innerHTML = "CONTINUE";
-  } else if (isAnswerBoxClicked === true && isFeedbackBoxHidden === false) {
-    // Step 3a: Load next question
-    questionNumber += 1;
-    updateQuizProgressBar();
-    updateQuizScreen(questionNumber);
-    document.querySelector(".q_checkButton_text").innerHTML = "CHECK";
-
-    // Step 3b: Reset answerboxes, isAnswerBoxClicked, & isFeedbackBox to default for the next question
-    document.querySelector(".q_answer1").style.backgroundColor = "#f7f7f7"; // color POLAR
-    document.querySelector(".q_answer2").style.backgroundColor = "#f7f7f7"; // color POLAR
-    document.querySelector(".q_answer3").style.backgroundColor = "#f7f7f7"; // color POLAR
-    document.querySelector(".q_answer4").style.backgroundColor = "#f7f7f7"; // color POLAR
-    document.querySelector(".q_checkButton").style.backgroundColor = "#e5e5e5"; // color SWAN
-    document.querySelector(".q_checkButton_text").style.backgroundColor =
-      "#e5e5e5"; // color SWAN
-    isAnswerBoxClicked = false;
-    document.querySelector(".q_feedbackBox").style.display = "none";
-    isFeedbackBoxHidden = true;
-  }
-}
-
-let isAnswerBoxClicked = false;
-let answer = "";
-let isFeedbackBoxHidden = true;
-let questionNumber = 0;
-let progressBarWidth = 0;
-
-// QUIZ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-function updateQuizProgressBar() {
-  let setIntervalFX = setInterval(updateProgressBar, 10); //setInterval(function, milliseconds) // Runs the frame function every 10 milliseconds
-  function updateProgressBar() {
-    if (progressBarWidth >= 100) {
-      // Step 3: If progress bar is full, stay at 100% and don't go beyond that
-      return;
-    } else if (
-      progressBarWidth >=
-      100 / (myQuestions.length / (questionNumber + 0))
-    ) {
-      // Step 2: Progress bar stops expanding when it reaches a certain point
-      clearInterval(setIntervalFX); // Stop running the setInterval function
-    } else {
-      progressBarWidth++; // Step 1: Progress bar expands
-      document.querySelector(".q_myBar").style.width = progressBarWidth + "%";
-    }
-  }
-}
-
-function updateQuizScreen(questionNumber) {
-  // guard clause
-  if (questionNumber + 1 < myQuestions.length) {
-    // update screen with the next question
-    document.querySelector(".q_question").innerHTML =
-      myQuestions[questionNumber].question;
-    document.querySelector(".q_answer1_image").src =
-      myQuestions[questionNumber].images.a;
-    document.querySelector(".q_answer2_image").src =
-      myQuestions[questionNumber].images.b;
-    document.querySelector(".q_answer3_image").src =
-      myQuestions[questionNumber].images.c;
-    document.querySelector(".q_answer4_image").src =
-      myQuestions[questionNumber].images.d;
-
-    document.querySelector(".q_answer1_text").innerHTML =
-      myQuestions[questionNumber].answers.a;
-    document.querySelector(".q_answer2_text").innerHTML =
-      myQuestions[questionNumber].answers.b;
-    document.querySelector(".q_answer3_text").innerHTML =
-      myQuestions[questionNumber].answers.c;
-    document.querySelector(".q_answer4_text").innerHTML =
-      myQuestions[questionNumber].answers.d;
-  }
-}
-
-let myQuestions = [
+let info = [
   {
-    question: "Which dog is feeling relaxed?",
+    question: "Which dog is relaxed?",
     images: {
-      a: "/images/dog1.jpg",
-      b: "/images/dog12.jpg",
-      c: "/images/dog3.jpg",
-      d: "/images/dog13.jpg",
+      a: "./images/dog1.jpg",
+      b: "./images/dog12.jpg",
+      c: "./images/dog3.jpg",
+      d: "./images/dog13.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -318,14 +223,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling relaxed?",
+    question: "Which dog is submissive?",
     images: {
-      a: "/images/dog2.jpg",
-      b: "/images/dog4.jpg",
-      c: "/images/dog9.jpg",
-      d: "/images/dog15.jpg",
+      a: "./images/dog3.jpg",
+      b: "./images/dog10.jpg",
+      c: "./images/dog2.jpg",
+      d: "./images/dog7.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -334,30 +239,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling submissive?",
-    images: {
-      a: "/images/dog3.jpg",
-      b: "/images/dog10.jpg",
-      c: "/images/dog2.jpg",
-      d: "/images/dog7.jpg",
-    },
-    answers: {
-      a: "1",
-      b: "2",
-      c: "3",
-      d: "4",
-    },
-    correctAnswer: "1",
-  },
-  {
-    question: "Which dog is feeling happy?",
+    question: "Which dog is happy?",
     images: {
       a: "/images/dog4.jpg",
       b: "/images/dog15.jpg",
       c: "/images/dog8.jpg",
       d: "/images/dog12.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -366,14 +255,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling ready to play?",
+    question: "Which dog is playful?",
     images: {
       a: "/images/dog5.jpg",
       b: "/images/dog8.jpg",
       c: "/images/dog7.jpg",
       d: "/images/dog1.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -382,14 +271,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling submissive?",
+    question: "Which dog is submissive?",
     images: {
       a: "/images/dog6.jpg",
       b: "/images/dog7.jpg",
       c: "/images/dog13.jpg",
       d: "/images/dog9.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -398,14 +287,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog wants to be left alone?",
+    question: "Which dog wants alone time?",
     images: {
       a: "/images/dog7.jpg",
       b: "/images/dog6.jpg",
       c: "/images/dog15.jpg",
       d: "/images/dog2.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -414,14 +303,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling anxious and stressed?",
+    question: "Which dog is stressed?",
     images: {
       a: "/images/dog8.jpg",
       b: "/images/dog14.jpg",
       c: "/images/dog10.jpg",
       d: "/images/dog7.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -430,14 +319,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling terrified?",
+    question: "Which dog is terrified?",
     images: {
       a: "/images/dog9.jpg",
       b: "/images/dog2.jpg",
       c: "/images/dog6.jpg",
       d: "/images/dog5.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -446,14 +335,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling scared and ready to fight?",
+    question: "Which dog is scared and combative?",
     images: {
       a: "/images/dog10.jpg",
       b: "/images/dog9.jpg",
       c: "/images/dog8.jpg",
       d: "/images/dog4.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -462,14 +351,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling alert?",
+    question: "Which dog is alert?",
     images: {
       a: "/images/dog11.jpg",
       b: "/images/dog8.jpg",
       c: "/images/dog3.jpg",
       d: "/images/dog7.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -478,14 +367,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling suspicious?",
+    question: "Which dog is suspicious?",
     images: {
       a: "/images/dog12.jpg",
       b: "/images/dog5.jpg",
       c: "/images/dog1.jpg",
       d: "/images/dog10.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -501,7 +390,7 @@ let myQuestions = [
       c: "/images/dog9.jpg",
       d: "/images/dog15.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -510,14 +399,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling defensive and territorial?",
+    question: "Which dog is territorial?",
     images: {
       a: "/images/dog14.jpg",
       b: "/images/dog11.jpg",
       c: "/images/dog1.jpg",
       d: "/images/dog4.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",
@@ -526,14 +415,14 @@ let myQuestions = [
     correctAnswer: "1",
   },
   {
-    question: "Which dog is feeling angry and ready to fight?",
+    question: "Which dog is ready to fight?",
     images: {
       a: "/images/dog15.jpg",
       b: "/images/dog8.jpg",
       c: "/images/dog11.jpg",
       d: "/images/dog12.jpg",
     },
-    answers: {
+    answer: {
       a: "1",
       b: "2",
       c: "3",

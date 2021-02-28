@@ -1,28 +1,18 @@
 // Color Variables
 const swan = "#e5e5e5"; //color code: a2
 const hare = "#afafaf"; //color code: a3
-const wolf = "#777777"; //color code: a4
-const eel = "#4b4b4b"; //color code: a5
-const featherGreen = "#58cc02"; // color code: d5
+const dark = "#202f36"; //color code: a6
+const darker = "#141f23"; //color code: a7
+const green = "#58cc02"; // color code: d5
 
 // Audio Variables
 // (ADD SOUND HERE)
 
 // State Variables
 const { useState, useEffect } = React;
+let temp = "";
 
 //explore useRef hook   how to save info from the dom using useRef
-
-// HANDLE OVERLAY
-function openNav() {
-  document.querySelector(".overlay").style.height = "21%";
-  console.log("testnav1");
-}
-
-function closeNav() {
-  document.querySelector(".overlay").style.height = "0%";
-  console.log("testnav2");
-}
 
 const App = (props) => {
   let [i, seti] = useState(1); // starts at 0, then
@@ -30,14 +20,14 @@ const App = (props) => {
   //MOUNT COMPONENT
   useEffect(() => {
     document.querySelector(".question").innerHTML = info[0].question;
-    document.querySelector(".answer1_image").src = info[0].images.b;
-    document.querySelector(".answer2_image").src = info[0].images.b;
-    document.querySelector(".answer3_image").src = info[0].images.c;
-    document.querySelector(".answer4_image").src = info[0].images.d;
-    document.querySelector(".answer1_text").innerHTML = info[0].answer.a;
-    document.querySelector(".answer2_text").innerHTML = info[0].answer.b;
-    document.querySelector(".answer3_text").innerHTML = info[0].answer.c;
-    document.querySelector(".answer4_text").innerHTML = info[0].answer.d;
+    document.querySelector(".answer1_img").src = info[0].images.b;
+    document.querySelector(".answer2_img").src = info[0].images.b;
+    document.querySelector(".answer3_img").src = info[0].images.c;
+    document.querySelector(".answer4_img").src = info[0].images.d;
+    document.querySelector(".answer1_txt").innerHTML = info[0].answer.a;
+    document.querySelector(".answer2_txt").innerHTML = info[0].answer.b;
+    document.querySelector(".answer3_txt").innerHTML = info[0].answer.c;
+    document.querySelector(".answer4_txt").innerHTML = info[0].answer.d;
   }, []);
 
   // HANDLE KEYPRESS
@@ -49,15 +39,14 @@ const App = (props) => {
       document.querySelector(".question").innerHTML = info[i].question;
 
       // this could be a template literal... potentially...
-      document.querySelector(".answer1_image").src = info[i].images.a;
-      document.querySelector(".answer2_image").src = info[i].images.b;
-      document.querySelector(".answer3_image").src = info[i].images.c;
-      document.querySelector(".answer4_image").src = info[i].images.d;
-
-      document.querySelector(".answer1_text").innerHTML = info[i].answer.a;
-      document.querySelector(".answer2_text").innerHTML = info[i].answer.b;
-      document.querySelector(".answer3_text").innerHTML = info[i].answer.c;
-      document.querySelector(".answer4_text").innerHTML = info[i].answer.d;
+      document.querySelector(".answer1_img").src = info[i].images.a;
+      document.querySelector(".answer2_img").src = info[i].images.b;
+      document.querySelector(".answer3_img").src = info[i].images.c;
+      document.querySelector(".answer4_img").src = info[i].images.d;
+      document.querySelector(".answer1_txt").innerHTML = info[i].answer.a;
+      document.querySelector(".answer2_txt").innerHTML = info[i].answer.b;
+      document.querySelector(".answer3_txt").innerHTML = info[i].answer.c;
+      document.querySelector(".answer4_txt").innerHTML = info[i].answer.d;
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [i]);
@@ -66,46 +55,42 @@ const App = (props) => {
   const handleKeyDown = (e) => {
     if (e.key === "1") {
       if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
-        document.querySelector(".answer1").style.backgroundColor = featherGreen;
-        document.querySelector(".answer2").style.backgroundColor = eel;
-        document.querySelector(".answer3").style.backgroundColor = eel;
-        document.querySelector(".answer4").style.backgroundColor = eel;
-        document.querySelector(
-          ".checkBtn"
-        ).style.backgroundColor = featherGreen;
+        temp = info[i].answer.a;
+        document.querySelector(".answer1").style.backgroundColor = green;
+        document.querySelector(".answer2").style.backgroundColor = dark;
+        document.querySelector(".answer3").style.backgroundColor = dark;
+        document.querySelector(".answer4").style.backgroundColor = dark;
+        document.querySelector(".checkBtn").style.backgroundColor = green;
         document.querySelector(".checkBtn").style.color = swan;
       }
     } else if (e.key === "2") {
       if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
-        document.querySelector(".answer1").style.backgroundColor = eel;
-        document.querySelector(".answer2").style.backgroundColor = featherGreen;
-        document.querySelector(".answer3").style.backgroundColor = eel;
-        document.querySelector(".answer4").style.backgroundColor = eel;
-        document.querySelector(
-          ".checkBtn"
-        ).style.backgroundColor = featherGreen;
+        temp = info[i].answer.b;
+        document.querySelector(".answer1").style.backgroundColor = dark;
+        document.querySelector(".answer2").style.backgroundColor = green;
+        document.querySelector(".answer3").style.backgroundColor = dark;
+        document.querySelector(".answer4").style.backgroundColor = dark;
+        document.querySelector(".checkBtn").style.backgroundColor = green;
         document.querySelector(".checkBtn").style.color = swan;
       }
     } else if (e.key === "3") {
       if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
-        document.querySelector(".answer1").style.backgroundColor = eel;
-        document.querySelector(".answer2").style.backgroundColor = eel;
-        document.querySelector(".answer3").style.backgroundColor = featherGreen;
-        document.querySelector(".answer4").style.backgroundColor = eel;
-        document.querySelector(
-          ".checkBtn"
-        ).style.backgroundColor = featherGreen;
+        temp = info[i].answer.c;
+        document.querySelector(".answer1").style.backgroundColor = dark;
+        document.querySelector(".answer2").style.backgroundColor = dark;
+        document.querySelector(".answer3").style.backgroundColor = green;
+        document.querySelector(".answer4").style.backgroundColor = dark;
+        document.querySelector(".checkBtn").style.backgroundColor = green;
         document.querySelector(".checkBtn").style.color = swan;
       }
     } else if (e.key === "4") {
       if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
-        document.querySelector(".answer1").style.backgroundColor = eel;
-        document.querySelector(".answer2").style.backgroundColor = eel;
-        document.querySelector(".answer3").style.backgroundColor = eel;
-        document.querySelector(".answer4").style.backgroundColor = featherGreen;
-        document.querySelector(
-          ".checkBtn"
-        ).style.backgroundColor = featherGreen;
+        temp = info[i].answer.d;
+        document.querySelector(".answer1").style.backgroundColor = dark;
+        document.querySelector(".answer2").style.backgroundColor = dark;
+        document.querySelector(".answer3").style.backgroundColor = dark;
+        document.querySelector(".answer4").style.backgroundColor = green;
+        document.querySelector(".checkBtn").style.backgroundColor = green;
         document.querySelector(".checkBtn").style.color = swan;
       }
     } else if (e.key === "Enter") {
@@ -122,6 +107,16 @@ const App = (props) => {
       ) {
         // PRESSED ENTER && Info array HAS NOT reached last slide
         if (i !== info.length) {
+          if (temp === info[i].correctAnswer) {
+            document.querySelector(".overlay_txt").innerHTML = "Good job!";
+            document.querySelector(".overlay_txt").style.color =
+              "rgb(88, 204, 2)";
+          } else {
+            document.querySelector(".overlay_txt").innerHTML = "Try again";
+            document.querySelector(".overlay_txt").style.color =
+              "rgb(255, 75, 75)";
+          }
+
           if (document.querySelector(".checkBtn").innerHTML !== "CONTINUE") {
             openNav();
             document.querySelector(".checkBtn").innerHTML = "CONTINUE";
@@ -129,15 +124,14 @@ const App = (props) => {
             document.querySelector(".checkBtn").innerHTML === "CONTINUE"
           ) {
             // Reset answer box colors & checkbtn text
-            console.log("test");
-            document.querySelector(".answer1").style.backgroundColor = eel;
-            document.querySelector(".answer2").style.backgroundColor = eel;
-            document.querySelector(".answer3").style.backgroundColor = eel;
-            document.querySelector(".answer4").style.backgroundColor = eel;
-            document.querySelector(".checkBtn").style.backgroundColor = eel;
-            document.querySelector(".checkBtn").style.backgroundColor = hare;
-            document.querySelector(".checkBtn").style.color = wolf;
+            document.querySelector(".answer1").style.backgroundColor = dark;
+            document.querySelector(".answer2").style.backgroundColor = dark;
+            document.querySelector(".answer3").style.backgroundColor = dark;
+            document.querySelector(".answer4").style.backgroundColor = dark;
+            document.querySelector(".checkBtn").style.backgroundColor = dark;
             document.querySelector(".checkBtn").innerHTML = "CHECK";
+            document.querySelector(".checkBtn").style.backgroundColor = hare;
+            document.querySelector(".checkBtn").style.color = dark;
 
             // Progress to next question slide (part 1 of 2)
             seti(i + 1);
@@ -152,6 +146,15 @@ const App = (props) => {
     }
   };
 
+  // HANDLE OVERLAY
+  function openNav() {
+    document.querySelector(".overlay").style.height = "21%";
+  }
+
+  function closeNav() {
+    document.querySelector(".overlay").style.height = "0%";
+  }
+
   return (
     <React.Fragment>
       <div className="quiz">
@@ -161,7 +164,7 @@ const App = (props) => {
           <div className="progressBarBox">
             <div className="progressBar">PROGRESS</div>
           </div>
-          <div className="heart">HEART</div>
+          <div className="heart">&hearts;</div>
         </div>
 
         {/* top2 */}
@@ -173,21 +176,21 @@ const App = (props) => {
         {/* middle */}
         <div className="middle">
           <div className="answer1">
-            <img className="answer1_image" />
-            <div className="answer1_text">test</div>
+            <img className="answer1_img" />
+            <div className="answer1_txt">test</div>
           </div>
 
           <div className="answer2">
-            <img className="answer2_image" />
-            <div className="answer2_text">test</div>
+            <img className="answer2_img" />
+            <div className="answer2_txt">test</div>
           </div>
           <div className="answer3">
-            <img className="answer3_image" />
-            <div className="answer3_text">test</div>
+            <img className="answer3_img" />
+            <div className="answer3_txt">test</div>
           </div>
           <div className="answer4">
-            <img className="answer4_image" />
-            <div className="answer4_text">test</div>
+            <img className="answer4_img" />
+            <div className="answer4_txt">test</div>
           </div>
         </div>
 
@@ -198,7 +201,10 @@ const App = (props) => {
       </div>
 
       {/* overlay */}
-      <div className="overlay"></div>
+
+      <div className="overlay">
+        <div className="overlay_txt">Good job!</div>
+      </div>
     </React.Fragment>
   );
 };

@@ -25,6 +25,9 @@
   --color_a3_hare: #afafaf;
   --color_a4_wolf: #777777;
   --color_a5_eel: #4b4b4b;
+  --color_a6_dark: #202f36;
+  --color_a7_darker: #141f23;
+
   /* group B */
   --color_b1_squid: #ebe3e3;
   --color_b2_walkingFish: #ffdfe0;
@@ -76,7 +79,7 @@
   height: 100vh;
   width: 100vw;
   font-size: 5vh;
-  background-color: var(--color_a5_eel);
+  background-color: var(--color_a7_darker);
   color: var(--color_a2_swan);
   font-family: "Lato", sans-serif;
 }
@@ -151,7 +154,7 @@
   margin-left: 1vw;
   margin-right: 1vw;
 
-  /* background-color: var(--color_a1_polar); */
+  background-color: var(--color_a6_dark);
   height: 25vh;
   width: 32vw;
   outline: var(--color_a3_hare) 1px solid;
@@ -160,19 +163,17 @@
   align-items: center;
   flex-wrap: wrap;
 }
-.answer1_image,
-.answer2_image,
-.answer3_image,
-.answer4_image {
-  /* background-color: var(--color_e6_macaw); */
+.answer1_img,
+.answer2_img,
+.answer3_img,
+.answer4_img {
   height: 20vh;
   width: 20vw;
-  outline: var(--red) 1px solid;
 }
-.answer1_text,
-.answer2_text,
-.answer3_text,
-.answer4_text {
+.answer1_txt,
+.answer2_txt,
+.answer3_txt,
+.answer4_txt {
   height: 5vh;
   width: 25vw;
   text-align: center;
@@ -187,7 +188,7 @@
 }
 .checkBtn {
   background-color: var(--color_a3_hare);
-  color: var(--color_a4_wolf);
+  color: var(--color_a6_dark);
   height: 10vh;
   width: 25vw;
   border-radius: 25px; /* rounded corner */
@@ -205,7 +206,16 @@
   top: auto; /* browser auto calculates top edge position */
   bottom: 0;
   left: 0;
-  background-color: var(--color_a4_wolf);
+  background-color: var(--color_a6_dark);
   overflow-y: hidden; /* content is clipped & no scrolling */
   transition: 0.3s;
+}
+
+.overlay_txt {
+  color: var(--color_d5_featherGreen);
+  font-size: 5vh;
+  font-weight: bold;
+  position: relative;
+  top: 2vh;
+  left: 2vw;
 }
